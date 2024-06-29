@@ -13,19 +13,17 @@ func _init():
 	
 func _ready():
 	chase_barrier(enemy_type)
-	
+
+func _physics_process(delta):
+	enemy_move(delta)
+
 func _process(delta):
 	label_zombie.text = "h: " + str(enemy_health)
 	
 	if enemy_health <= 0:
 		queue_free()
 	
-	if not is_hitting_barrier:
-		if enemy_type == ENEMY_TYPE_ENUM.FLOOR:
-			move_local_x(delta * velocity.x)
-		elif enemy_type == ENEMY_TYPE_ENUM.FLY:
-			move_and_collide(velocity * delta)
-	else:
+	if is_hitting_barrier:
 		velocity = Vector2.ZERO
 		
 		enemy_strengh = 0
@@ -37,8 +35,6 @@ func _on_timer_hit_cooldown_timeout():
 	timer_hit_cooldown.stop()
 
 func _on_area_2d_body_entered(body):
-	print("character: " + str(body))
-	
 	if body is BulletClass:
 		enemy_health -= body.bullet_damage
 		body.on_hit(self, position)

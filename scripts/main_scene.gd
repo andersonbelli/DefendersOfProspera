@@ -26,9 +26,6 @@ func _on_timer_enemy_spawn_timeout():
 		enemy = CharacterEnemyBat.instantiate()
 	else:
 		enemy = CharacterEnemyZombie.instantiate()
-	
-	#if CharacterEnemyBat.can_instantiate():
-	#var enemyBat: EnemyBaseClass = CharacterEnemyBat.instantiate()
 
 	if enemy.enemy_type == ENEMY_TYPE_ENUM.FLY:
 		path_follow.progress_ratio = randf_range(0, 1)

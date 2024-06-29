@@ -12,6 +12,7 @@ size = Vector2(40, 40)
 collision_layer = 24
 collision_mask = 20
 script = ExtResource("1_61pyc")
+enemy_type = null
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 8
