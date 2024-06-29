@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://djql07clsuycf"]
+
+[ext_resource type="Texture2D" uid="uid://cqwodif4qwtb3" path="res://assets/images/barrier.svg" id="1_vj7yh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sotof"]
+radius = 10.6479
+
+[node name="AreaBarrier" type="Area2D"]
+
+[node name="Barrier" type="Sprite2D" parent="."]
+position = Vector2(0, 3)
+texture = ExtResource("1_vj7yh")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.48416e-44, 116)
+scale = Vector2(35.6884, 36.1721)
+shape = SubResource("CircleShape2D_sotof")

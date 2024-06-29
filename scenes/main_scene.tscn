@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://23icyprm7xtk"]
+
+[ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_46110"]
+[ext_resource type="PackedScene" uid="uid://djql07clsuycf" path="res://scenes/area_barrier.tscn" id="1_qfxj0"]
+[ext_resource type="PackedScene" uid="uid://cxqyxieu1ybkl" path="res://scenes/characters_scene.tscn" id="6_ekbvq"]
+
+[node name="MainScene" type="CanvasLayer"]
+script = ExtResource("1_46110")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.113033, 2.83971e-06, 0.541984, 1)
+
+[node name="AreaBarrier" parent="." instance=ExtResource("1_qfxj0")]
+position = Vector2(638, 563)
+scale = Vector2(0.6, 0.6)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(638, 360)
+
+[node name="CharactersController" parent="." instance=ExtResource("6_ekbvq")]
