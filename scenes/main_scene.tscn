@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://23icyprm7xtk"]
+[gd_scene load_steps=5 format=3 uid="uid://23icyprm7xtk"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_46110"]
 [ext_resource type="PackedScene" uid="uid://djql07clsuycf" path="res://scenes/area_barrier.tscn" id="1_qfxj0"]
+[ext_resource type="PackedScene" uid="uid://wyehcnibcwfo" path="res://scenes/character_enemy_bat.tscn" id="2_0b7nw"]
 [ext_resource type="PackedScene" uid="uid://cxqyxieu1ybkl" path="res://scenes/characters_scene.tscn" id="6_ekbvq"]
 
 [node name="MainScene" type="CanvasLayer"]
 script = ExtResource("1_46110")
+CharacterEnemyBat = ExtResource("2_0b7nw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -15,7 +17,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.113033, 2.83971e-06, 0.541984, 1)
 
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -113.0
+offset_right = 113.0
+offset_bottom = 78.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 57
+text = "Barrier:  %"
+
 [node name="AreaBarrier" parent="." instance=ExtResource("1_qfxj0")]
+unique_name_in_owner = true
 position = Vector2(638, 563)
 scale = Vector2(0.6, 0.6)
 
@@ -23,3 +38,10 @@ scale = Vector2(0.6, 0.6)
 position = Vector2(638, 360)
 
 [node name="CharactersController" parent="." instance=ExtResource("6_ekbvq")]
+
+[node name="TimerEnemySpawn" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="TimerEnemySpawn" to="." method="_on_timer_enemy_spawn_timeout"]

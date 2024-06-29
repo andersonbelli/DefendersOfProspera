@@ -1,11 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmlgf5ofygb6m"]
-
-[ext_resource type="Script" path="res://scripts/character_mage.gd" id="1_s58ph"]
+[gd_scene format=3 uid="uid://bmlgf5ofygb6m"]
 
 [node name="CharacterMage" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
 collision_mask = 8
-script = ExtResource("1_s58ph")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 8
