@@ -40,8 +40,9 @@ func _on_timer_enemy_spawn_timeout():
 		
 		if left_or_right == 0:
 			enemy.position.x = static_body_spawn_right.position.x
+			enemy.position.y = static_body_spawn_right.position.y
 		else:
 			enemy.position.x = static_body_spawn_left.position.x
-		enemy.position.y = 680
+			enemy.position.y = static_body_spawn_left.position.y
 	
 	add_child(enemy)

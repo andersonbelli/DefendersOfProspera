@@ -9,10 +9,10 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hpcmk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ytx0"]
-size = Vector2(54, 58)
+size = Vector2(58, 58)
 
-[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_8evgb"]
-length = 51.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1uief"]
+size = Vector2(58, 58)
 
 [sub_resource type="Curve2D" id="Curve2D_mcyjd"]
 _data = {
@@ -25,12 +25,12 @@ script = ExtResource("1_46110")
 CharacterEnemyBat = ExtResource("2_0b7nw")
 CharacterEnemyZombie = ExtResource("3_sv4su")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(640, 695)
+[node name="StaticBodyWorld" type="StaticBody2D" parent="."]
+position = Vector2(640, 689)
 collision_layer = 16
 collision_mask = 31
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyWorld"]
 position = Vector2(640, 720)
 shape = SubResource("WorldBoundaryShape2D_hpcmk")
 
@@ -56,36 +56,36 @@ text = "Barrier:  %"
 
 [node name="AreaBarrier" parent="." instance=ExtResource("1_qfxj0")]
 unique_name_in_owner = true
-position = Vector2(638, 563)
+position = Vector2(640, 527)
 scale = Vector2(0.6, 0.6)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(638, 360)
-
 [node name="CharactersController" parent="." instance=ExtResource("6_ekbvq")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
 
 [node name="TimerEnemySpawn" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
 
 [node name="StaticBodySpawnRight" type="StaticBody2D" parent="."]
-position = Vector2(1308, 688)
+position = Vector2(1309, 649)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodySpawnRight"]
 shape = SubResource("RectangleShape2D_2ytx0")
 
 [node name="StaticBodySpawnLeft" type="StaticBody2D" parent="."]
-position = Vector2(-53, 661)
+position = Vector2(-29, 649)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodySpawnLeft"]
 rotation = -1.57079
-shape = SubResource("SeparationRayShape2D_8evgb")
+shape = SubResource("RectangleShape2D_1uief")
 
 [node name="PathSpawn" type="Path2D" parent="."]
 curve = SubResource("Curve2D_mcyjd")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="PathSpawn"]
-position = Vector2(1391, 206)
+position = Vector2(1391, 205.998)
 rotation = 1.29337
 progress = 1836.68
 

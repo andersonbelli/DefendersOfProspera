@@ -9,10 +9,10 @@
 script = ExtResource("1_ytjs0")
 
 [node name="CharacterEngineer" parent="." instance=ExtResource("1_cpr2p")]
-position = Vector2(773, 629)
+position = Vector2(773, 591)
 
 [node name="CharacterFarmer" parent="." instance=ExtResource("2_110no")]
-position = Vector2(507, 629)
+position = Vector2(507, 591)
 
 [node name="CharacterMage" parent="." instance=ExtResource("3_hjswl")]
-position = Vector2(640, 527)
+position = Vector2(640, 489)
