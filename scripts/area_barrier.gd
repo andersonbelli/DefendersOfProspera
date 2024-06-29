@@ -1,7 +1,5 @@
 extends Area2D
 
-signal on_hit
-
 var barrier_health = 100
 
 var enemy_damaging_barrier: EnemyBaseClass

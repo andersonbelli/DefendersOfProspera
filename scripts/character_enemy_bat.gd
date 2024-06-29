@@ -13,10 +13,9 @@ func _init():
 	strengh = enemy_strengh
 	
 func _process(delta):
-	#if timer_hit_cooldown.is_stopped():
-		#print("strengh " + str(enemy_strengh))
-		#enemy_strengh = 0
-		#timer_hit_cooldown.start()
+	if enemy_health <= 0:
+		print("tchau :")
+		queue_free()
 	
 	if not ray_cast_enemy_hit.is_colliding():
 		velocity.x = enemy_velocity
@@ -30,3 +29,11 @@ func _on_timer_hit_cooldown_timeout():
 	enemy_strengh = strengh
 	print("HIT")
 	timer_hit_cooldown.stop()
+
+func _on_area_2d_body_entered(body):
+	if body is BulletClass:
+		enemy_health -= body.bullet_damage
+		body.on_hit(self, position)
+		print(enemy_health)
+	else:
+		print(body.name)

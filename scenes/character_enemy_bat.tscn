@@ -7,8 +7,8 @@
 size = Vector2(40, 40)
 
 [node name="CharacterEnemyBat" type="CharacterBody2D"]
-collision_layer = 8
-collision_mask = 10
+collision_layer = 12
+collision_mask = 14
 script = ExtResource("1_b2x2l")
 AreaBarrier = ExtResource("2_arisc")
 
@@ -26,9 +26,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.141176, 0.0980392, 0.0980392, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_nb652")
-
 [node name="RayCastEnemyHit" type="RayCast2D" parent="."]
 position = Vector2(-18, 0)
 target_position = Vector2(38, 0)
@@ -39,4 +36,12 @@ collide_with_bodies = false
 [node name="TimerHitCooldown" type="Timer" parent="."]
 wait_time = 1.5
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 12
+collision_mask = 30
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_nb652")
+
 [connection signal="timeout" from="TimerHitCooldown" to="." method="_on_timer_hit_cooldown_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

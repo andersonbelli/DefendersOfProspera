@@ -1,8 +1,13 @@
-[gd_scene format=3 uid="uid://dnchqt6bdbub"]
+[gd_scene load_steps=3 format=3 uid="uid://dnchqt6bdbub"]
+
+[ext_resource type="Script" path="res://scripts/character_engineer.gd" id="1_owt66"]
+[ext_resource type="PackedScene" uid="uid://bmyynpv7jflmv" path="res://scenes/rigid_body_bullet.tscn" id="2_cdanc"]
 
 [node name="CharacterEngineer" type="CharacterBody2D"]
 visibility_layer = 8
 scale = Vector2(0.25, 0.25)
+script = ExtResource("1_owt66")
+Bullet = ExtResource("2_cdanc")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 8

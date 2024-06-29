@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmyynpv7jflmv"]
+
+[ext_resource type="Script" path="res://scripts/rigid_body_munition.gd" id="1_25yjj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vccp5"]
+size = Vector2(40, 40)
+
+[node name="RigidBodyBullet" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 8
+linear_damp_mode = 1
+script = ExtResource("1_25yjj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vccp5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

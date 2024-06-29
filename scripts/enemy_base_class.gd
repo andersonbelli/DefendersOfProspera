@@ -10,3 +10,4 @@ const ENEMY_TYPE_ENUM = preload("res://scripts/enemy_type_enum.gd").EnemyType
 
 var enemy_velocity := 10
 var enemy_strengh := 8
+var enemy_health := 5
