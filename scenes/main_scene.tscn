@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://23icyprm7xtk"]
+[gd_scene load_steps=9 format=3 uid="uid://23icyprm7xtk"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_46110"]
 [ext_resource type="PackedScene" uid="uid://djql07clsuycf" path="res://scenes/area_barrier.tscn" id="1_qfxj0"]
@@ -6,6 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://cxqyxieu1ybkl" path="res://scenes/characters_scene.tscn" id="6_ekbvq"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hpcmk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ytx0"]
+size = Vector2(54, 58)
+
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_8evgb"]
+length = 51.0
+
+[sub_resource type="Curve2D" id="Curve2D_mcyjd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -53, 234, 0, 0, 0, 0, -26, -21, 0, 0, 0, 0, 111, -44, 0, 0, 0, 0, 403, -49, 0, 0, 0, 0, 725, -51, 0, 0, 0, 0, 1038, -39, 0, 0, 0, 0, 1209, -39, 0, 0, 0, 0, 1287, -34, 0, 0, 0, 0, 1348, 55, 0, 0, 0, 0, 1391, 206)
+}
+point_count = 10
 
 [node name="MainScene" type="CanvasLayer"]
 script = ExtResource("1_46110")
@@ -51,7 +63,27 @@ position = Vector2(638, 360)
 
 [node name="TimerEnemySpawn" type="Timer" parent="."]
 wait_time = 3.0
-one_shot = true
 autostart = true
+
+[node name="StaticBodySpawnRight" type="StaticBody2D" parent="."]
+position = Vector2(1308, 688)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodySpawnRight"]
+shape = SubResource("RectangleShape2D_2ytx0")
+
+[node name="StaticBodySpawnLeft" type="StaticBody2D" parent="."]
+position = Vector2(-53, 661)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodySpawnLeft"]
+rotation = -1.57079
+shape = SubResource("SeparationRayShape2D_8evgb")
+
+[node name="PathSpawn" type="Path2D" parent="."]
+curve = SubResource("Curve2D_mcyjd")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathSpawn"]
+position = Vector2(1391, 206)
+rotation = 1.29337
+progress = 1836.68
 
 [connection signal="timeout" from="TimerEnemySpawn" to="." method="_on_timer_enemy_spawn_timeout"]
