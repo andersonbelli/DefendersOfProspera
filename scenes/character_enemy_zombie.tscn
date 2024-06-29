@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwrcoho08s1sq"]
+
+[ext_resource type="Script" path="res://scripts/character_enemy_zombie.gd" id="1_61pyc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esjxu"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kryp5"]
+size = Vector2(40, 40)
+
+[node name="CharacterEnemyZombie" type="CharacterBody2D"]
+collision_layer = 24
+collision_mask = 20
+script = ExtResource("1_61pyc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.631373, 0.215686, 1, 1)
+
+[node name="TimerHitCooldown" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 24
+collision_mask = 30
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_esjxu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kryp5")
+
+[node name="LabelZombie" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 3.0
+text = "h:"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

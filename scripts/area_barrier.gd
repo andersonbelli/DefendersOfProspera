@@ -9,6 +9,6 @@ func _physics_process(delta):
 		barrier_health -= enemy_damaging_barrier.enemy_strengh
 
 func _on_body_entered(body):
-	print("asd")
 	if body is EnemyBaseClass:
+		body.is_hitting_barrier = true
 		enemy_damaging_barrier = body

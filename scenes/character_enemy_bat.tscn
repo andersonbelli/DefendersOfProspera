@@ -10,7 +10,7 @@ size = Vector2(40, 40)
 
 [node name="CharacterEnemyBat" type="CharacterBody2D"]
 collision_layer = 8
-collision_mask = 12
+collision_mask = 20
 script = ExtResource("1_b2x2l")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -28,6 +28,7 @@ grow_vertical = 2
 color = Color(0.141176, 0.0980392, 0.0980392, 1)
 
 [node name="RayCastEnemyHit" type="RayCast2D" parent="."]
+visible = false
 target_position = Vector2(20, 0)
 collision_mask = 2
 collide_with_areas = true
@@ -45,6 +46,13 @@ shape = SubResource("RectangleShape2D_nb652")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_uef38")
+
+[node name="LabelHealth" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 86.0
+offset_bottom = 3.0
+text = "h:"
 
 [connection signal="timeout" from="TimerHitCooldown" to="." method="_on_timer_hit_cooldown_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
