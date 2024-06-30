@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node
 
 const ENEMY_TYPE_ENUM = preload("res://scripts/enemy_type_enum.gd").EnemyType
 
@@ -15,7 +15,6 @@ const ENEMY_TYPE_ENUM = preload("res://scripts/enemy_type_enum.gd").EnemyType
 
 func _physics_process(delta):
 	label_barrier.text = "Barrier: " + str(area_barrier.barrier_health) + "%"
-	pass
 
 func _on_timer_enemy_spawn_timeout():
 	var zombie_or_bat = randi_range(0, 1)

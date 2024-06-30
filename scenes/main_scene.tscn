@@ -1,10 +1,23 @@
-[gd_scene load_steps=10 format=3 uid="uid://23icyprm7xtk"]
+[gd_scene load_steps=14 format=3 uid="uid://23icyprm7xtk"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_46110"]
 [ext_resource type="PackedScene" uid="uid://djql07clsuycf" path="res://scenes/area_barrier.tscn" id="1_qfxj0"]
 [ext_resource type="PackedScene" uid="uid://wyehcnibcwfo" path="res://scenes/character_enemy_bat.tscn" id="2_0b7nw"]
 [ext_resource type="PackedScene" uid="uid://cwrcoho08s1sq" path="res://scenes/character_enemy_zombie.tscn" id="3_sv4su"]
 [ext_resource type="PackedScene" uid="uid://cxqyxieu1ybkl" path="res://scenes/characters_scene.tscn" id="6_ekbvq"]
+
+[sub_resource type="Environment" id="Environment_62272"]
+background_mode = 3
+ambient_light_source = 2
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 1.13
+glow_strength = 0.98
+glow_blend_mode = 1
+glow_hdr_threshold = 2.55
+glow_hdr_scale = 0.9
+glow_hdr_luminance_cap = 15.45
+glow_map_strength = 1.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hpcmk"]
 
@@ -20,10 +33,74 @@ _data = {
 }
 point_count = 10
 
-[node name="MainScene" type="CanvasLayer"]
+[sub_resource type="Gradient" id="Gradient_o6cb8"]
+interpolation_mode = 2
+colors = PackedColorArray(0.171135, 0.397805, 0.976721, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7xewe"]
+gradient = SubResource("Gradient_o6cb8")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.535613, 0.817664)
+fill_to = Vector2(0.495726, 0.0655271)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wwm08"]
+polygon = PackedVector2Array(-1066.67, 261.667, 1070, 261.667, 1070, 348.333, -1066.67, 348.333)
+
+[node name="Node" type="Node"]
 script = ExtResource("1_46110")
 CharacterEnemyBat = ExtResource("2_0b7nw")
 CharacterEnemyZombie = ExtResource("3_sv4su")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_62272")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.181356, 0.0416973, 0.242259, 1)
+metadata/_edit_lock_ = true
+
+[node name="StaticBodyWorld" type="StaticBody2D" parent="."]
+position = Vector2(640, 689)
+collision_layer = 16
+collision_mask = 31
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyWorld"]
+position = Vector2(640, 720)
+shape = SubResource("WorldBoundaryShape2D_hpcmk")
+
+[node name="TimerEnemySpawn" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="StaticBodySpawnRight" type="StaticBody2D" parent="."]
+position = Vector2(1309, 649)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodySpawnRight"]
+shape = SubResource("RectangleShape2D_2ytx0")
+
+[node name="StaticBodySpawnLeft" type="StaticBody2D" parent="."]
+position = Vector2(-29, 635)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodySpawnLeft"]
+rotation = -1.57079
+shape = SubResource("RectangleShape2D_1uief")
+
+[node name="PathSpawn" type="Path2D" parent="."]
+curve = SubResource("Curve2D_mcyjd")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PathSpawn"]
+position = Vector2(1391, 205.998)
+rotation = 1.29337
+progress = 1836.68
 
 [node name="HUDInfo" type="ColorRect" parent="."]
 anchors_preset = 12
@@ -31,7 +108,6 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -51.0
-offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 10
@@ -53,56 +129,46 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 35
 text = "Barrier:  %"
 
-[node name="StaticBodyWorld" type="StaticBody2D" parent="."]
-position = Vector2(640, 689)
-collision_layer = 16
-collision_mask = 31
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyWorld"]
-position = Vector2(640, 720)
-shape = SubResource("WorldBoundaryShape2D_hpcmk")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.113033, 2.83971e-06, 0.541984, 1)
-
 [node name="AreaBarrier" parent="." instance=ExtResource("1_qfxj0")]
 unique_name_in_owner = true
+light_mask = 2
 position = Vector2(640, 512)
 scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
+[node name="PointLight2D2" type="PointLight2D" parent="AreaBarrier"]
+light_mask = 9
+visibility_layer = 9
+position = Vector2(4.57764e-05, 261.667)
+scale = Vector2(33.3333, 18.875)
+color = Color(0.534518, 0.700614, 0.975477, 1)
+energy = 6.96
+blend_mode = 2
+shadow_enabled = true
+shadow_item_cull_mask = 16
+texture = SubResource("GradientTexture2D_7xewe")
+offset = Vector2(0, -27.4967)
+
+[node name="CharacterEnemyBat" parent="." instance=ExtResource("2_0b7nw")]
+position = Vector2(453, 330)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+light_mask = 16
+visibility_layer = 16
+position = Vector2(640, 0)
+color = Color(0.222651, 0.211169, 0.190022, 1)
+blend_mode = 2
+range_item_cull_mask = 16
 
 [node name="CharactersController" parent="." instance=ExtResource("6_ekbvq")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(640, 360)
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="CharactersController"]
+position = Vector2(640, 512)
+scale = Vector2(0.6, 0.6)
+occluder = SubResource("OccluderPolygon2D_wwm08")
+occluder_light_mask = 16
 
-[node name="TimerEnemySpawn" type="Timer" parent="."]
-wait_time = 3.0
-
-[node name="StaticBodySpawnRight" type="StaticBody2D" parent="."]
-position = Vector2(1309, 649)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodySpawnRight"]
-shape = SubResource("RectangleShape2D_2ytx0")
-
-[node name="StaticBodySpawnLeft" type="StaticBody2D" parent="."]
-position = Vector2(-29, 649)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodySpawnLeft"]
-rotation = -1.57079
-shape = SubResource("RectangleShape2D_1uief")
-
-[node name="PathSpawn" type="Path2D" parent="."]
-curve = SubResource("Curve2D_mcyjd")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="PathSpawn"]
-position = Vector2(1391, 205.998)
-rotation = 1.29337
-progress = 1836.68
+[node name="CharacterEnemyZombie" parent="." instance=ExtResource("3_sv4su")]
+position = Vector2(306, 635)
 
 [connection signal="timeout" from="TimerEnemySpawn" to="." method="_on_timer_enemy_spawn_timeout"]

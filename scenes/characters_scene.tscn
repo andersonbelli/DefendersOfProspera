@@ -9,13 +9,13 @@
 script = ExtResource("1_ytjs0")
 
 [node name="CharacterEngineer" parent="." instance=ExtResource("1_cpr2p")]
-position = Vector2(773, 580)
+position = Vector2(773, 578)
 
 [node name="CharacterFarmer" parent="." instance=ExtResource("2_110no")]
-position = Vector2(510, 580)
+position = Vector2(510, 578)
 
 [node name="CharacterMage" parent="." instance=ExtResource("3_hjswl")]
-position = Vector2(640, 489)
+position = Vector2(640, 487)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 visible = false
@@ -36,10 +36,10 @@ anchor_left = 0.414844
 anchor_top = 0.988889
 anchor_right = 0.5
 anchor_bottom = 1.00278
-offset_left = -316.0
-offset_top = -43.0
-offset_right = -276.0
-offset_bottom = -3.0
+offset_left = -317.0
+offset_top = -42.0001
+offset_right = -277.0
+offset_bottom = -2.00006
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 6
