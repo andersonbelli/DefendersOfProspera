@@ -3,10 +3,13 @@ extends CharacterBody2D
 @export var Bullet: PackedScene
 
 func _process(delta):
-	var mouse_position = get_viewport().get_mouse_position()
+	var controller = get_parent() as CharacterController
 	
-	if Input.is_action_just_pressed("attack"):
-		attack(mouse_position)
+	if controller.selected_character == CharactersEnum.Characters.ENGINEER:
+		var mouse_position = get_viewport().get_mouse_position()
+	
+		if Input.is_action_just_pressed("attack"):
+			attack(mouse_position)
 
 func attack(mouse_position):
 	var bullet: RigidBody2D = Bullet.instantiate()

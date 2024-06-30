@@ -13,7 +13,7 @@ var enemy_strengh := 8
 var enemy_health := 5
 
 func chase_barrier(_enemy_type: ENEMY_TYPE_ENUM):
-	var barrier: Area2D = get_parent().get_node("AreaBarrier")
+	var barrier: BarrierClass = get_parent().get_node("AreaBarrier")
 	
 	if enemy_type == ENEMY_TYPE_ENUM.FLOOR:
 		position.x -= barrier.position.direction_to(position).x

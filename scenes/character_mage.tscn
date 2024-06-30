@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://bmlgf5ofygb6m"]
+[gd_scene load_steps=2 format=3 uid="uid://bmlgf5ofygb6m"]
+
+[ext_resource type="Script" path="res://scenes/character_mage.gd" id="1_sxy2f"]
 
 [node name="CharacterMage" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
 collision_mask = 8
+script = ExtResource("1_sxy2f")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 8
@@ -17,3 +20,8 @@ offset_bottom = 363.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.521569, 0.176471, 0.909804, 1)
+
+[node name="TimerHealthCooldown" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="TimerHealthCooldown" to="." method="_on_timer_health_cooldown_timeout"]

@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name BarrierClass
+
 var barrier_health = 100
 
 var enemy_damaging_barrier: EnemyBaseClass

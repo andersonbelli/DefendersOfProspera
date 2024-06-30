@@ -1,5 +1,7 @@
 extends Node
 
+class_name CharacterController
+
 const CHARACTERS_ENUM = preload("res://scripts/character_enum.gd").Characters
 
 @export var selected_character: CHARACTERS_ENUM
