@@ -7,14 +7,14 @@ const ENEMY_TYPE_ENUM = preload("res://scripts/enemy_type_enum.gd").EnemyType
 
 @onready var timer_enemy_spawn = $TimerEnemySpawn
 @onready var area_barrier = %AreaBarrier
-@onready var label = $Label
+@onready var label_barrier = $HUDInfo/LabelBarrier
 
 @onready var path_follow = $PathSpawn/PathFollow2D
 @onready var static_body_spawn_left = $StaticBodySpawnLeft
 @onready var static_body_spawn_right = $StaticBodySpawnRight
 
 func _physics_process(delta):
-	label.text = "Barrier: " + str(area_barrier.barrier_health)
+	label_barrier.text = "Barrier: " + str(area_barrier.barrier_health) + "%"
 	pass
 
 func _on_timer_enemy_spawn_timeout():

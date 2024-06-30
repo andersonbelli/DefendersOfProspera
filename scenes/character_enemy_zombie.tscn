@@ -1,6 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwrcoho08s1sq"]
+[gd_scene load_steps=5 format=3 uid="uid://cwrcoho08s1sq"]
 
 [ext_resource type="Script" path="res://scripts/character_enemy_zombie.gd" id="1_61pyc"]
+
+[sub_resource type="Environment" id="Environment_1ktgj"]
+background_mode = 3
+background_color = Color(0.404511, 0.404511, 0.404511, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.117503, 0.354073, 0.999997, 1)
+tonemap_mode = 3
+glow_enabled = true
+glow_intensity = 0.5
+glow_strength = 1.2
+glow_blend_mode = 1
+glow_hdr_threshold = 2.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_esjxu"]
 size = Vector2(40, 40)
@@ -14,6 +26,9 @@ collision_mask = 20
 script = ExtResource("1_61pyc")
 enemy_type = null
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1ktgj")
+
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
@@ -26,7 +41,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.631373, 0.215686, 1, 1)
+color = Color(0.631, 0.265, 1, 1)
 
 [node name="TimerHitCooldown" type="Timer" parent="."]
 wait_time = 3.0
@@ -36,9 +51,11 @@ collision_layer = 24
 collision_mask = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource("RectangleShape2D_esjxu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_kryp5")
 
 [node name="LabelZombie" type="Label" parent="."]

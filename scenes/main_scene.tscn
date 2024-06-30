@@ -25,6 +25,34 @@ script = ExtResource("1_46110")
 CharacterEnemyBat = ExtResource("2_0b7nw")
 CharacterEnemyZombie = ExtResource("3_sv4su")
 
+[node name="HUDInfo" type="ColorRect" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -51.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 10
+color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+
+[node name="LabelBarrier" type="Label" parent="HUDInfo"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -88.0
+offset_top = -49.0
+offset_right = 88.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 35
+text = "Barrier:  %"
+
 [node name="StaticBodyWorld" type="StaticBody2D" parent="."]
 position = Vector2(640, 689)
 collision_layer = 16
@@ -35,6 +63,7 @@ position = Vector2(640, 720)
 shape = SubResource("WorldBoundaryShape2D_hpcmk")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -42,21 +71,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.113033, 2.83971e-06, 0.541984, 1)
 
-[node name="Label" type="Label" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -145.0
-offset_right = 145.0
-offset_bottom = 78.0
-grow_horizontal = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 57
-text = "Barrier:  %"
-
 [node name="AreaBarrier" parent="." instance=ExtResource("1_qfxj0")]
 unique_name_in_owner = true
-position = Vector2(640, 527)
+position = Vector2(640, 512)
 scale = Vector2(0.6, 0.6)
 
 [node name="CharactersController" parent="." instance=ExtResource("6_ekbvq")]
@@ -66,7 +83,6 @@ position = Vector2(640, 360)
 
 [node name="TimerEnemySpawn" type="Timer" parent="."]
 wait_time = 3.0
-autostart = true
 
 [node name="StaticBodySpawnRight" type="StaticBody2D" parent="."]
 position = Vector2(1309, 649)
