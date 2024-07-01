@@ -1,48 +1,48 @@
 [gd_scene load_steps=21 format=3 uid="uid://wyehcnibcwfo"]
 
 [ext_resource type="Script" path="res://scripts/character_enemy_bat.gd" id="1_b2x2l"]
-[ext_resource type="Texture2D" uid="uid://c02r2437s0r0x" path="res://assets/images/1bat0.svg" id="2_2q2qy"]
-[ext_resource type="Texture2D" uid="uid://comr45xvo4nwq" path="res://assets/images/1bat1.svg" id="3_idiuk"]
-[ext_resource type="Texture2D" uid="uid://bsmupulnd3l72" path="res://assets/images/1bat2.svg" id="4_fbqdy"]
-[ext_resource type="Texture2D" uid="uid://c08i5x1nfv5it" path="res://assets/images/1bat3.svg" id="5_tcs5y"]
-[ext_resource type="Texture2D" uid="uid://byj6ec40oc6lh" path="res://assets/images/1bat4.svg" id="6_2joqi"]
-[ext_resource type="Texture2D" uid="uid://0pcicid62i2s" path="res://assets/images/1bat5.svg" id="7_vfrw6"]
+[ext_resource type="Texture2D" uid="uid://c02r2437s0r0x" path="res://assets/images/bat/1bat0.svg" id="2_tl8tm"]
+[ext_resource type="Texture2D" uid="uid://comr45xvo4nwq" path="res://assets/images/bat/1bat1.svg" id="3_tbmwe"]
+[ext_resource type="Texture2D" uid="uid://bsmupulnd3l72" path="res://assets/images/bat/1bat2.svg" id="4_h3r3t"]
+[ext_resource type="Texture2D" uid="uid://c08i5x1nfv5it" path="res://assets/images/bat/1bat3.svg" id="5_7wgnn"]
+[ext_resource type="Texture2D" uid="uid://byj6ec40oc6lh" path="res://assets/images/bat/1bat4.svg" id="6_vokh1"]
+[ext_resource type="Texture2D" uid="uid://0pcicid62i2s" path="res://assets/images/bat/1bat5.svg" id="7_8qtrn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_71q5p"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_2q2qy")
+"texture": ExtResource("2_tl8tm")
 }, {
 "duration": 5.0,
-"texture": ExtResource("3_idiuk")
+"texture": ExtResource("3_tbmwe")
 }, {
 "duration": 5.0,
-"texture": ExtResource("4_fbqdy")
+"texture": ExtResource("4_h3r3t")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_tcs5y")
+"texture": ExtResource("5_7wgnn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_2joqi")
+"texture": ExtResource("6_vokh1")
 }, {
 "duration": 5.0,
-"texture": ExtResource("7_vfrw6")
+"texture": ExtResource("7_8qtrn")
 }, {
 "duration": 5.0,
-"texture": ExtResource("6_2joqi")
+"texture": ExtResource("6_vokh1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_tcs5y")
+"texture": ExtResource("5_7wgnn")
 }, {
 "duration": 5.0,
-"texture": ExtResource("4_fbqdy")
+"texture": ExtResource("4_h3r3t")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_idiuk")
+"texture": ExtResource("3_tbmwe")
 }, {
 "duration": 10.0,
-"texture": ExtResource("2_2q2qy")
+"texture": ExtResource("2_tl8tm")
 }],
 "loop": true,
 "name": &"flying",

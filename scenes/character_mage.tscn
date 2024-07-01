@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bmlgf5ofygb6m"]
 
-[ext_resource type="Script" path="res://scenes/character_mage.gd" id="1_sxy2f"]
+[ext_resource type="Script" path="res://scripts/character_mage.gd" id="1_sxy2f"]
 
 [node name="CharacterMage" type="CharacterBody2D"]
 light_mask = 17
