@@ -62,6 +62,7 @@ cast_spell={
 2d_render/layer_3="Projectiles"
 2d_render/layer_4="Enemies"
 2d_render/layer_5="World"
+2d_render/layer_10="HUD"
 2d_physics/layer_1="Characters"
 2d_physics/layer_2="Barrier"
 2d_physics/layer_3="Projectiles"

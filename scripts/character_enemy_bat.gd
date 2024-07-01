@@ -3,6 +3,8 @@ extends EnemyBaseClass
 @onready var timer_hit_cooldown = $TimerHitCooldown
 @onready var label_health = $LabelHealth
 
+@onready var animated_sprite = $AnimatedSprite2D
+
 var strengh = 0
 
 func _init():
@@ -12,9 +14,12 @@ func _init():
 	strengh = enemy_strengh
 	
 func _ready():
-	chase_barrier(enemy_type)
+	if position.x > 640:
+		animated_sprite.flip_v = true
 
 func _physics_process(delta):
+	var barrier = get_parent().get_node("AreaBarrier")
+	
 	enemy_move(delta)
 
 func _process(delta):

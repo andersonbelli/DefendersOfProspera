@@ -6,14 +6,16 @@ const ENEMY_TYPE_ENUM = preload("res://scripts/enemy_type_enum.gd").EnemyType
 
 @export var enemy_type: ENEMY_TYPE_ENUM = ENEMY_TYPE_ENUM.FLY
 
+var barrier: BarrierClass
+
 var is_hitting_barrier = false
 
 var enemy_velocity := 10
 var enemy_strengh := 8
 var enemy_health := 5
 
-func chase_barrier(_enemy_type: ENEMY_TYPE_ENUM):
-	var barrier: BarrierClass = get_parent().get_node("AreaBarrier")
+func chase_barrier(_enemy_type: ENEMY_TYPE_ENUM, _barrier: BarrierClass):
+	barrier = _barrier
 	
 	if enemy_type == ENEMY_TYPE_ENUM.FLOOR:
 		position.x -= barrier.position.direction_to(position).x

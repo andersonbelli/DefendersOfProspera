@@ -20,14 +20,9 @@ func _process(delta):
 				cast_spell()
 
 func cast_spell():
-	var asd: float = 0.0
-	asd
-	
 	if barrier != null:
 		match selected_speel:
 			SPEELS.HEAL:
-				#var barrier: BarrierClass = get_parent().get_parent().get_node("AreaBarrier")
-
 				if barrier.barrier_health < 100:
 					if barrier.barrier_health + heal_spell_strengh > 100:
 						barrier.barrier_health = 100

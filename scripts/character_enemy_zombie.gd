@@ -10,9 +10,6 @@ func _init():
 	enemy_velocity = 70
 
 	strengh = enemy_strengh
-	
-func _ready():
-	chase_barrier(enemy_type)
 
 func _physics_process(delta):
 	enemy_move(delta)

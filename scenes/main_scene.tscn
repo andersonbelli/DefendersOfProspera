@@ -47,7 +47,7 @@ fill_to = Vector2(0.495726, 0.0655271)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wwm08"]
 polygon = PackedVector2Array(-1066.67, 261.667, 1070, 261.667, 1070, 348.333, -1066.67, 348.333)
 
-[node name="Node" type="Node"]
+[node name="Main" type="Node"]
 script = ExtResource("1_46110")
 CharacterEnemyBat = ExtResource("2_0b7nw")
 CharacterEnemyZombie = ExtResource("3_sv4su")
@@ -103,6 +103,8 @@ rotation = 1.29337
 progress = 1836.68
 
 [node name="HUDInfo" type="ColorRect" parent="."]
+light_mask = 0
+visibility_layer = 512
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -114,6 +116,8 @@ size_flags_vertical = 10
 color = Color(0.0962047, 0.0962048, 0.0962047, 1)
 
 [node name="LabelBarrier" type="Label" parent="HUDInfo"]
+light_mask = 0
+visibility_layer = 512
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -149,6 +153,10 @@ shadow_item_cull_mask = 16
 texture = SubResource("GradientTexture2D_7xewe")
 offset = Vector2(0, -27.4967)
 
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="AreaBarrier"]
+occluder = SubResource("OccluderPolygon2D_wwm08")
+occluder_light_mask = 17
+
 [node name="CharacterEnemyBat" parent="." instance=ExtResource("2_0b7nw")]
 position = Vector2(453, 330)
 
@@ -159,14 +167,10 @@ position = Vector2(640, 0)
 color = Color(0.222651, 0.211169, 0.190022, 1)
 blend_mode = 2
 range_item_cull_mask = 16
+shadow_enabled = true
+shadow_item_cull_mask = 0
 
 [node name="CharactersController" parent="." instance=ExtResource("6_ekbvq")]
-
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="CharactersController"]
-position = Vector2(640, 512)
-scale = Vector2(0.6, 0.6)
-occluder = SubResource("OccluderPolygon2D_wwm08")
-occluder_light_mask = 16
 
 [node name="CharacterEnemyZombie" parent="." instance=ExtResource("3_sv4su")]
 position = Vector2(306, 635)

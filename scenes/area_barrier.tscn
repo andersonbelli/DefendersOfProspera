@@ -104,7 +104,6 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 visibility_layer = 2
 position = Vector2(4.48416e-44, 116)
 scale = Vector2(35.6884, 36.1721)

@@ -21,6 +21,8 @@ func _on_timer_enemy_spawn_timeout():
 	
 	var enemy: EnemyBaseClass
 	
+	zombie_or_bat = 0
+	
 	if zombie_or_bat == 0:
 		enemy = CharacterEnemyBat.instantiate()
 	else:
@@ -40,5 +42,10 @@ func _on_timer_enemy_spawn_timeout():
 		else:
 			enemy.position.x = static_body_spawn_left.position.x
 			enemy.position.y = static_body_spawn_left.position.y
-	
+
+	enemy.chase_barrier(enemy.enemy_type, area_barrier)
+	enemy.look_at(area_barrier.position)
+
+	print(enemy.position)
+
 	add_child(enemy)
