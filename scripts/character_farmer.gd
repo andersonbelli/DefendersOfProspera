@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
-@onready var rigid_body_rope = $RigidBodyRope
 @onready var timer_rope_reach_target = $TimerRopeReachTarget
 @onready var timer_pull_rope = $TimerPullRope
 
 @onready var line_2d: Line2D = $AreaRope/Line2D
 @onready var collision_rope = $AreaRope/CollisionRope
+
+@onready var label = $Label
 
 var initial_collision_position: Vector2
 
@@ -23,6 +24,11 @@ func _ready():
 	initial_collision_position = collision_rope.position
 
 func _physics_process(delta):
+	if is_rope_throwed == false:
+		label.text = "true"
+	else:
+		label.text = "false"
+	
 	if timer_pull_rope.is_stopped() and line_2d.get_point_count() > 0:
 		rope_pull()
 
@@ -80,5 +86,6 @@ func _on_timer_pull_rope_timeout():
 		is_rope_throwed = false
 		collision_rope.position = initial_collision_position
 	else:
-		collision_rope.position = line_2d.get_point_position(remove_point_at)
-		line_2d.remove_point(remove_point_at)
+		if remove_point_at - 1 >= 0:
+			collision_rope.position = line_2d.get_point_position(remove_point_at)
+			line_2d.remove_point(remove_point_at)
