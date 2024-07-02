@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://wyehcnibcwfo"]
+[gd_scene load_steps=22 format=3 uid="uid://wyehcnibcwfo"]
 
 [ext_resource type="Script" path="res://scripts/character_enemy_bat.gd" id="1_b2x2l"]
+[ext_resource type="PackedScene" uid="uid://cl0dthh625hu6" path="res://scenes/rigid_body_essence_shard.tscn" id="2_3mo3h"]
 [ext_resource type="Texture2D" uid="uid://c02r2437s0r0x" path="res://assets/images/bat/1bat0.svg" id="2_tl8tm"]
 [ext_resource type="Texture2D" uid="uid://comr45xvo4nwq" path="res://assets/images/bat/1bat1.svg" id="3_tbmwe"]
 [ext_resource type="Texture2D" uid="uid://bsmupulnd3l72" path="res://assets/images/bat/1bat2.svg" id="4_h3r3t"]
@@ -232,14 +233,16 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nb652"]
 size = Vector2(87, 70)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uef38"]
-size = Vector2(87.5, 69)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8wldv"]
+radius = 15.2971
+height = 56.8736
 
 [node name="CharacterEnemyBat" type="CharacterBody2D"]
 light_mask = 16
 collision_layer = 8
 collision_mask = 20
 script = ExtResource("1_b2x2l")
+EssenceShard = ExtResource("2_3mo3h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 16
@@ -319,8 +322,9 @@ position = Vector2(-3.5, 0)
 shape = SubResource("RectangleShape2D_nb652")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.75, 0.5)
-shape = SubResource("RectangleShape2D_uef38")
+position = Vector2(6, 18)
+rotation = -1.37338
+shape = SubResource("CapsuleShape2D_8wldv")
 
 [node name="LabelHealth" type="Label" parent="."]
 visible = false

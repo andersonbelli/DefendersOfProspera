@@ -1,8 +1,23 @@
-[gd_scene format=3 uid="uid://cilmyihbwb5tp"]
+[gd_scene load_steps=6 format=3 uid="uid://cilmyihbwb5tp"]
+
+[ext_resource type="Script" path="res://scripts/character_farmer.gd" id="1_nij7w"]
+
+[sub_resource type="Gradient" id="Gradient_vra6a"]
+
+[sub_resource type="Gradient" id="Gradient_8tyu2"]
+colors = PackedColorArray(0, 0.878431, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sipfk"]
+gradient = SubResource("Gradient_8tyu2")
+use_hdr = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ap86y"]
+radius = 121.655
 
 [node name="CharacterFarmer" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
 collision_mask = 8
+script = ExtResource("1_nij7w")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 8
@@ -20,3 +35,31 @@ pivot_offset = Vector2(228, 364)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(0.360509, 0.707669, 0.203134, 1)
+
+[node name="Line2D" type="Line2D" parent="."]
+width = 200.0
+gradient = SubResource("Gradient_vra6a")
+texture = SubResource("GradientTexture2D_sipfk")
+
+[node name="RigidBodyRope" type="RigidBody2D" parent="."]
+visible = false
+visibility_layer = 16
+collision_layer = 48
+collision_mask = 48
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBodyRope"]
+light_mask = 256
+visibility_layer = 24
+position = Vector2(88, 88)
+shape = SubResource("CircleShape2D_ap86y")
+
+[node name="ColorRect" type="ColorRect" parent="RigidBodyRope"]
+offset_right = 172.0
+offset_bottom = 172.0
+color = Color(0.643099, 0.642336, 1.15514e-06, 1)
+
+[node name="TimerRopeCooldown" type="Timer" parent="RigidBodyRope"]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="body_entered" from="RigidBodyRope" to="." method="_on_rigid_body_rope_body_entered"]

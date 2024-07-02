@@ -70,12 +70,12 @@ metadata/_edit_lock_ = true
 
 [node name="StaticBodyWorld" type="StaticBody2D" parent="."]
 light_mask = 16
-position = Vector2(640, 689)
+position = Vector2(632, 669)
 collision_layer = 16
 collision_mask = 31
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyWorld"]
-position = Vector2(640, 720)
 shape = SubResource("WorldBoundaryShape2D_hpcmk")
 
 [node name="TimerEnemySpawn" type="Timer" parent="."]

@@ -1,5 +1,7 @@
 extends EnemyBaseClass
 
+@export var EssenceShard: PackedScene
+
 @onready var timer_hit_cooldown = $TimerHitCooldown
 @onready var label_health = $LabelHealth
 
@@ -19,13 +21,16 @@ func _ready():
 
 func _physics_process(delta):
 	var barrier = get_parent().get_node("AreaBarrier")
-	
 	enemy_move(delta)
 
 func _process(delta):
 	label_health.text = "h: " + str(enemy_health)
 	
 	if enemy_health <= 0:
+		var item_drop: RigidBody2D = EssenceShard.instantiate()
+		item_drop.position = position
+		
+		get_parent().add_child(item_drop)
 		queue_free()
 	
 	if is_hitting_barrier:

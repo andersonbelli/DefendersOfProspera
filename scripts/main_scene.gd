@@ -46,6 +46,4 @@ func _on_timer_enemy_spawn_timeout():
 	enemy.chase_barrier(enemy.enemy_type, area_barrier)
 	enemy.look_at(area_barrier.position)
 
-	print(enemy.position)
-
 	add_child(enemy)
