@@ -3,6 +3,8 @@
 [ext_resource type="Script" path="res://scripts/character_farmer.gd" id="1_nij7w"]
 
 [sub_resource type="Gradient" id="Gradient_vra6a"]
+offsets = PackedFloat32Array(0, 0.989071)
+colors = PackedColorArray(0.893504, 0.806672, 0.381826, 1, 0.772431, 0.591059, 7.70092e-07, 1)
 
 [sub_resource type="Gradient" id="Gradient_8tyu2"]
 colors = PackedColorArray(0, 0.878431, 0, 1, 1, 1, 1, 1)
@@ -10,6 +12,8 @@ colors = PackedColorArray(0, 0.878431, 0, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sipfk"]
 gradient = SubResource("Gradient_8tyu2")
 use_hdr = true
+fill_from = Vector2(0.991453, 0.0940171)
+fill_to = Vector2(0, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ap86y"]
 radius = 121.655
@@ -37,7 +41,8 @@ size_flags_vertical = 4
 color = Color(0.360509, 0.707669, 0.203134, 1)
 
 [node name="Line2D" type="Line2D" parent="."]
-width = 200.0
+points = PackedVector2Array(268, 144)
+width = 20.0
 gradient = SubResource("Gradient_vra6a")
 texture = SubResource("GradientTexture2D_sipfk")
 
@@ -59,7 +64,7 @@ offset_bottom = 172.0
 color = Color(0.643099, 0.642336, 1.15514e-06, 1)
 
 [node name="TimerRopeCooldown" type="Timer" parent="RigidBodyRope"]
-wait_time = 3.0
-one_shot = true
+wait_time = 0.005
 
 [connection signal="body_entered" from="RigidBodyRope" to="." method="_on_rigid_body_rope_body_entered"]
+[connection signal="timeout" from="RigidBodyRope/TimerRopeCooldown" to="." method="_on_timer_rope_cooldown_timeout"]
