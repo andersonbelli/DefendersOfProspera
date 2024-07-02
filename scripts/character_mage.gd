@@ -9,18 +9,26 @@ var barrier: BarrierClass
 var selected_speel := SPEELS.HEAL
 var heal_spell_strengh := 15
 
+var controller: CharacterController
+
 @onready var timer_heal_spell_cooldown: Timer = $TimerHealSpellCooldown
+@onready var animation_player = $AnimationPlayer
+
+func _ready():
+	controller = get_parent() as CharacterController
 
 func _process(delta):
-	var controller = get_parent() as CharacterController
-	
 	if controller.selected_character == CharactersEnum.Characters.MAGE:
 		if timer_heal_spell_cooldown.is_stopped() and Input.is_action_just_pressed("cast_spell"):
 				timer_heal_spell_cooldown.start()
 				cast_spell()
+	pass
 
 func cast_spell():
 	if barrier != null:
+		animation_player.play("casting_spell")
+		animation_player.queue("casting_spell_mouth")
+		
 		match selected_speel:
 			SPEELS.HEAL:
 				if barrier.barrier_health < 100:
@@ -34,4 +42,5 @@ func cast_spell():
 
 
 func _on_timer_health_cooldown_timeout():
+	animation_player.play("RESET")
 	timer_heal_spell_cooldown.stop()

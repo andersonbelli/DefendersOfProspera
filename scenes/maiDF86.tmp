@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://23icyprm7xtk"]
+[gd_scene load_steps=15 format=3 uid="uid://23icyprm7xtk"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_46110"]
 [ext_resource type="PackedScene" uid="uid://djql07clsuycf" path="res://scenes/area_barrier.tscn" id="1_qfxj0"]
 [ext_resource type="PackedScene" uid="uid://wyehcnibcwfo" path="res://scenes/character_enemy_bat.tscn" id="2_0b7nw"]
 [ext_resource type="PackedScene" uid="uid://cwrcoho08s1sq" path="res://scenes/character_enemy_zombie.tscn" id="3_sv4su"]
+[ext_resource type="PackedScene" uid="uid://bmlgf5ofygb6m" path="res://scenes/character_mage.tscn" id="6_2hg3p"]
 [ext_resource type="PackedScene" uid="uid://cxqyxieu1ybkl" path="res://scenes/characters_scene.tscn" id="6_ekbvq"]
 
 [sub_resource type="Environment" id="Environment_62272"]
@@ -78,6 +79,7 @@ shape = SubResource("WorldBoundaryShape2D_hpcmk")
 
 [node name="TimerEnemySpawn" type="Timer" parent="."]
 wait_time = 3.0
+autostart = true
 
 [node name="StaticBodySpawnRight" type="StaticBody2D" parent="."]
 position = Vector2(1309, 649)
@@ -170,6 +172,7 @@ shadow_enabled = true
 shadow_item_cull_mask = 0
 
 [node name="CharactersController" parent="." instance=ExtResource("6_ekbvq")]
+CharacterMage = ExtResource("6_2hg3p")
 
 [node name="CharacterEnemyZombie" parent="." instance=ExtResource("3_sv4su")]
 position = Vector2(306, 635)

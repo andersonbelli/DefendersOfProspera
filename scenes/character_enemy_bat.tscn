@@ -245,7 +245,8 @@ scale = Vector2(0.08, 0.08)
 sprite_frames = SubResource("SpriteFrames_71q5p")
 animation = &"flying"
 autoplay = "flying"
-frame_progress = 0.130942
+frame = 10
+frame_progress = 0.671779
 
 [node name="LightOccluder2D0" type="LightOccluder2D" parent="AnimatedSprite2D"]
 occluder = SubResource("OccluderPolygon2D_nal5s")
