@@ -8,10 +8,19 @@ class_name ShardEssence
 var shard_value = 1
 
 func _process(delta):
-	print(timer.time_left)
-	
 	if timer.time_left < 2:
 		animation_player.play("timer_running_out")
 
 func _on_timer_timeout():
-	queue_free()
+	#queue_free()
+	pass
+
+
+
+
+func _on_area_2d_body_entered(body):
+	print("shard = ", body)
+
+
+func _on_area_2d_area_entered(area):
+	print("shard area = ", area)

@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
 @onready var rigid_body_rope = $RigidBodyRope
-@onready var timer_rope_cooldown = $RigidBodyRope/TimerRopeCooldown
+@onready var timer_rope_cooldown = $TimerRopeCooldown
 
-@onready var line_2d: Line2D = $Line2D
+@onready var line_2d: Line2D = $Area2D/Line2D
+
+@onready var collision_shape = $Area2D/CollisionShape2D
 
 var is_throwing_rope = false
 
@@ -30,6 +32,7 @@ func start_rope_throw(start_pos: Vector2, end_pos: Vector2):
 	
 	for i in range(num_points + 1):
 		var point = start_pos + direction * (i * 10)
+		
 		points.append(point)
 	
 	points.append(end_pos)  # Ensure the final point is exactly at the click position
@@ -37,6 +40,20 @@ func start_rope_throw(start_pos: Vector2, end_pos: Vector2):
 
 func _on_timer_rope_cooldown_timeout():
 	if points.size() > 0:
+		if points.size() > 3:
+			collision_shape.position = points.pop_front()
+		else:
+			collision_shape.position = target
 		line_2d.add_point(points.pop_front())
 	else:
 		timer_rope_cooldown.stop()
+
+
+func _on_area_2d_body_entered(body):
+	print("rope: ", body)
+	pass # Replace with function body.
+
+
+func _on_area_2d_area_entered(area):
+	print("are rope: ", area)
+	pass # Replace with function body.
