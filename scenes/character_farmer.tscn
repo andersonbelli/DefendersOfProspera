@@ -42,7 +42,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(0.360509, 0.707669, 0.203134, 1)
 
-[node name="TimerRopeCooldown" type="Timer" parent="."]
+[node name="TimerPullRope" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="TimerRopeReachTarget" type="Timer" parent="."]
 wait_time = 0.005
 
 [node name="AreaRope" type="Area2D" parent="."]
@@ -59,4 +62,5 @@ texture = SubResource("GradientTexture2D_sipfk")
 position = Vector2(264, 144)
 shape = SubResource("CapsuleShape2D_80h6q")
 
-[connection signal="timeout" from="TimerRopeCooldown" to="." method="_on_timer_rope_cooldown_timeout"]
+[connection signal="timeout" from="TimerPullRope" to="." method="_on_timer_pull_rope_timeout"]
+[connection signal="timeout" from="TimerRopeReachTarget" to="." method="_on_timer_rope_reach_target_timeout"]
