@@ -19,8 +19,8 @@ func _on_area_2d_area_entered(area):
 	print("shard area = ", area.name)
 	
 	if area.name == "AreaRope":
+		var area_rope: Area2D = area
 		var colission_rope = area.get_node("CollisionRope")
-		print("Rope: ", colission_rope.position)
-		print("Shard: ", position)
-		#position = colission_rope.position
+		var farmer: CharacterBody2D = area_rope.get_parent()
+		
 		reparent(colission_rope)
