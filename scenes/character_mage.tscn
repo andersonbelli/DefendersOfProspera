@@ -887,62 +887,52 @@ _data = {
 }
 
 [node name="CharacterMage" type="CharacterBody2D"]
-light_mask = 17
-visibility_layer = 17
+light_mask = 256
 scale = Vector2(0.25, 0.25)
 collision_mask = 8
 script = ExtResource("1_mdy7d")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -229.5
-offset_top = -363.0
-offset_right = 229.5
-offset_bottom = 363.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.521569, 0.176471, 0.909804, 1)
-metadata/_edit_lock_ = true
 
 [node name="TimerHealSpellCooldown" type="Timer" parent="."]
 wait_time = 3.0
 
 [node name="Right-foot" type="Sprite2D" parent="."]
+light_mask = 256
 position = Vector2(96, 272)
 texture = ExtResource("4_2wo87")
 
 [node name="Left-foot" type="Sprite2D" parent="."]
+light_mask = 256
 position = Vector2(-72, 272)
 texture = ExtResource("8_jeqlf")
 
 [node name="Legs-bottom-cloth" type="Sprite2D" parent="."]
+light_mask = 256
 position = Vector2(8, 168)
 texture = ExtResource("7_pvqdq")
 
 [node name="Right-arm" type="Sprite2D" parent="."]
+light_mask = 256
 position = Vector2(40, -76)
 texture = ExtResource("5_c5ej1")
 offset = Vector2(72, 116)
 
 [node name="Right-arm-up" type="Sprite2D" parent="."]
 visible = false
+light_mask = 256
 position = Vector2(12, -100)
 rotation = 1.16064
 texture = ExtResource("6_m1on4")
 offset = Vector2(127.737, -60.2292)
 
 [node name="Left-arm" type="Sprite2D" parent="."]
+light_mask = 256
 position = Vector2(-84, -72)
 texture = ExtResource("9_s0sbh")
 offset = Vector2(-54.8714, 98.2626)
 
 [node name="Left-arm-up" type="Sprite2D" parent="."]
 visible = false
+light_mask = 256
 position = Vector2(-128, 36)
 rotation = -0.923684
 scale = Vector2(1.42818, 1)
@@ -950,24 +940,29 @@ texture = ExtResource("8_tqnkc")
 offset = Vector2(-80.3166, -2.5144)
 
 [node name="Staff" type="Sprite2D" parent="."]
+light_mask = 256
 position = Vector2(-184, 40)
 texture = ExtResource("3_4xhum")
 
 [node name="Staff-ball" type="Sprite2D" parent="."]
 visible = false
+light_mask = 256
 position = Vector2(-420, -24)
 rotation = -0.923684
 texture = ExtResource("11_bhvh5")
 
 [node name="Legs-top-cloth" type="Sprite2D" parent="."]
+light_mask = 256
 position = Vector2(16, 132)
 texture = ExtResource("6_u5bpn")
 
 [node name="Belt" type="Sprite2D" parent="."]
+light_mask = 256
 position = Vector2(-12, 88)
 texture = ExtResource("14_daa0v")
 
 [node name="Top-body" type="Sprite2D" parent="."]
+light_mask = 256
 position = Vector2(-8, -40)
 texture = ExtResource("14_u7fek")
 
@@ -978,36 +973,44 @@ libraries = {
 autoplay = "idle"
 
 [node name="Top-body-cloths" type="Sprite2D" parent="."]
+light_mask = 256
 position = Vector2(-16, -48)
 texture = ExtResource("14_h130f")
 
 [node name="Head-no-eyes" type="Sprite2D" parent="."]
+light_mask = 256
 position = Vector2(-22, -190)
 texture = ExtResource("10_dqk6s")
 
 [node name="Hat" type="Sprite2D" parent="."]
+light_mask = 256
 position = Vector2(-25.5, -305)
 texture = ExtResource("11_hohec")
 
 [node name="Beard" type="Sprite2D" parent="."]
+light_mask = 256
 position = Vector2(-14, -90)
 texture = ExtResource("15_elnej")
 
 [node name="Eyes" type="Sprite2D" parent="."]
+light_mask = 256
 position = Vector2(-12, -204)
 texture = ExtResource("12_er0iu")
 
 [node name="EyesClosed" type="Sprite2D" parent="."]
 visible = false
+light_mask = 256
 position = Vector2(-12, -204)
 texture = ExtResource("16_eukim")
 
 [node name="Mouth-closed" type="Sprite2D" parent="."]
+light_mask = 256
 position = Vector2(-12, -124.5)
 texture = ExtResource("17_4w7ou")
 
 [node name="Mouth-open" type="Sprite2D" parent="."]
 visible = false
+light_mask = 256
 position = Vector2(-12, -124)
 rotation = -3.11927
 texture = ExtResource("18_vs0i7")

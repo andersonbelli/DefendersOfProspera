@@ -1,9 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxqyxieu1ybkl"]
+[gd_scene load_steps=7 format=3 uid="uid://cxqyxieu1ybkl"]
 
 [ext_resource type="PackedScene" uid="uid://dnchqt6bdbub" path="res://scenes/character_engineer.tscn" id="1_cpr2p"]
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_ytjs0"]
 [ext_resource type="PackedScene" uid="uid://cilmyihbwb5tp" path="res://scenes/character_farmer.tscn" id="2_110no"]
 [ext_resource type="PackedScene" uid="uid://bmlgf5ofygb6m" path="res://scenes/character_mage.tscn" id="3_hjswl"]
+
+[sub_resource type="Gradient" id="Gradient_o6cb8"]
+interpolation_mode = 2
+colors = PackedColorArray(0.171135, 0.397805, 0.976721, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4ijw7"]
+gradient = SubResource("Gradient_o6cb8")
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.535613, 0.817664)
+fill_to = Vector2(0.495726, 0.0655271)
 
 [node name="CharactersController" type="Node"]
 script = ExtResource("1_ytjs0")
@@ -15,7 +26,23 @@ position = Vector2(773, 578)
 position = Vector2(510, 578)
 
 [node name="CharacterMage" parent="." instance=ExtResource("3_hjswl")]
+light_mask = 0
 position = Vector2(640, 487)
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+visible = false
+light_mask = 8
+visibility_layer = 8
+position = Vector2(663, 637)
+scale = Vector2(33.3333, 18.875)
+color = Color(0.534518, 0.700614, 0.975477, 1)
+energy = 6.96
+blend_mode = 2
+range_item_cull_mask = 24
+shadow_enabled = true
+shadow_item_cull_mask = 16
+texture = SubResource("GradientTexture2D_4ijw7")
+offset = Vector2(0, -27.4967)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 visible = false

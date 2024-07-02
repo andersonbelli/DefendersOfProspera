@@ -5,7 +5,8 @@
 
 [sub_resource type="Gradient" id="Gradient_pabbw"]
 interpolation_mode = 2
-colors = PackedColorArray(0.171135, 0.397805, 0.976721, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0.451613, 1)
+colors = PackedColorArray(0.171, 0.398, 0.977, 0.801, 0, 0, 0, 0.294118)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_er7py"]
 gradient = SubResource("Gradient_pabbw")
@@ -71,6 +72,8 @@ _data = {
 radius = 10.6479
 
 [node name="AreaBarrier" type="Area2D"]
+light_mask = 16
+visibility_layer = 2
 collision_layer = 2
 collision_mask = 10
 script = ExtResource("1_sused")
@@ -85,18 +88,23 @@ color = Color(0.0911214, 0.0911215, 0.0911214, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 visible = false
+light_mask = 1023
+visibility_layer = 31
 position = Vector2(-4.50005, -87)
 scale = Vector2(20.2344, 11.3438)
 color = Color(0.534518, 0.700614, 0.975477, 1)
-energy = 6.96
-blend_mode = 2
+energy = 4.53
+range_item_cull_mask = 16
+shadow_enabled = true
+shadow_item_cull_mask = 16
 texture = SubResource("GradientTexture2D_er7py")
 
 [node name="Barrier" type="Sprite2D" parent="."]
 clip_children = 2
+light_mask = 16
+visibility_layer = 2
 position = Vector2(0, 3)
 texture = ExtResource("1_vj7yh")
-metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Barrier"]
 libraries = {
@@ -104,10 +112,10 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 visibility_layer = 2
 position = Vector2(4.48416e-44, 116)
 scale = Vector2(35.6884, 36.1721)
 shape = SubResource("CircleShape2D_sotof")
-metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

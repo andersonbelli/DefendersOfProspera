@@ -33,12 +33,12 @@ _data = {
 }
 point_count = 10
 
-[sub_resource type="Gradient" id="Gradient_o6cb8"]
+[sub_resource type="Gradient" id="Gradient_uayfw"]
 interpolation_mode = 2
 colors = PackedColorArray(0.171135, 0.397805, 0.976721, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_7xewe"]
-gradient = SubResource("Gradient_o6cb8")
+gradient = SubResource("Gradient_uayfw")
 use_hdr = true
 fill = 1
 fill_from = Vector2(0.535613, 0.817664)
@@ -59,6 +59,7 @@ position = Vector2(640, 360)
 environment = SubResource("Environment_62272")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 16
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -68,6 +69,7 @@ color = Color(0.181356, 0.0416973, 0.242259, 1)
 metadata/_edit_lock_ = true
 
 [node name="StaticBodyWorld" type="StaticBody2D" parent="."]
+light_mask = 16
 position = Vector2(640, 689)
 collision_layer = 16
 collision_mask = 31
@@ -78,6 +80,7 @@ shape = SubResource("WorldBoundaryShape2D_hpcmk")
 
 [node name="TimerEnemySpawn" type="Timer" parent="."]
 wait_time = 3.0
+autostart = true
 
 [node name="StaticBodySpawnRight" type="StaticBody2D" parent="."]
 position = Vector2(1309, 649)
@@ -132,42 +135,44 @@ size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 35
 text = "Barrier:  %"
 
-[node name="AreaBarrier" parent="." instance=ExtResource("1_qfxj0")]
-unique_name_in_owner = true
-light_mask = 2
-position = Vector2(640, 512)
-scale = Vector2(0.6, 0.6)
-metadata/_edit_group_ = true
-
-[node name="PointLight2D2" type="PointLight2D" parent="AreaBarrier"]
-light_mask = 9
-visibility_layer = 9
-position = Vector2(4.57764e-05, 261.667)
-scale = Vector2(33.3333, 18.875)
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+light_mask = 16
+visibility_layer = 16
+position = Vector2(640, 669)
+scale = Vector2(20, 11.325)
 color = Color(0.534518, 0.700614, 0.975477, 1)
-energy = 6.96
-blend_mode = 2
+energy = 5.0
+range_item_cull_mask = 16
 shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
 shadow_item_cull_mask = 16
 texture = SubResource("GradientTexture2D_7xewe")
 offset = Vector2(0, -27.4967)
 
+[node name="AreaBarrier" parent="." instance=ExtResource("1_qfxj0")]
+unique_name_in_owner = true
+light_mask = 18
+position = Vector2(640, 512)
+scale = Vector2(0.6, 0.6)
+metadata/_edit_group_ = true
+
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="AreaBarrier"]
 occluder = SubResource("OccluderPolygon2D_wwm08")
-occluder_light_mask = 17
+occluder_light_mask = 512
 
 [node name="CharacterEnemyBat" parent="." instance=ExtResource("2_0b7nw")]
+visibility_layer = 8
 position = Vector2(453, 330)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-light_mask = 16
-visibility_layer = 16
+light_mask = 24
+visibility_layer = 24
 position = Vector2(640, 0)
 color = Color(0.222651, 0.211169, 0.190022, 1)
 blend_mode = 2
 range_item_cull_mask = 16
 shadow_enabled = true
-shadow_item_cull_mask = 0
+shadow_item_cull_mask = 15
 
 [node name="CharactersController" parent="." instance=ExtResource("6_ekbvq")]
 
