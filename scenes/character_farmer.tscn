@@ -1,9 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cilmyihbwb5tp"]
+[gd_scene load_steps=6 format=3 uid="uid://cilmyihbwb5tp"]
 
 [ext_resource type="Script" path="res://scripts/character_farmer.gd" id="1_nij7w"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ap86y"]
-radius = 121.655
 
 [sub_resource type="Gradient" id="Gradient_vra6a"]
 offsets = PackedFloat32Array(0, 0.989071)
@@ -48,37 +45,19 @@ color = Color(0.360509, 0.707669, 0.203134, 1)
 [node name="TimerRopeCooldown" type="Timer" parent="."]
 wait_time = 0.005
 
-[node name="RigidBodyRope" type="RigidBody2D" parent="."]
-visible = false
-visibility_layer = 16
-collision_layer = 48
-collision_mask = 48
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBodyRope"]
-light_mask = 256
-visibility_layer = 24
-position = Vector2(88, 88)
-shape = SubResource("CircleShape2D_ap86y")
-
-[node name="ColorRect" type="ColorRect" parent="RigidBodyRope"]
-offset_right = 172.0
-offset_bottom = 172.0
-color = Color(0.643099, 0.642336, 1.15514e-06, 1)
-
-[node name="Area2D" type="Area2D" parent="."]
+[node name="AreaRope" type="Area2D" parent="."]
 collision_layer = 32
 collision_mask = 32
 
-[node name="Line2D" type="Line2D" parent="Area2D"]
+[node name="Line2D" type="Line2D" parent="AreaRope"]
 points = PackedVector2Array(268, 144)
 width = 20.0
 gradient = SubResource("Gradient_vra6a")
 texture = SubResource("GradientTexture2D_sipfk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionRope" type="CollisionShape2D" parent="AreaRope"]
 position = Vector2(264, 144)
 shape = SubResource("CapsuleShape2D_80h6q")
 
 [connection signal="timeout" from="TimerRopeCooldown" to="." method="_on_timer_rope_cooldown_timeout"]
-[connection signal="body_entered" from="RigidBodyRope" to="." method="_on_rigid_body_rope_body_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="AreaRope" to="." method="_on_area_2d_body_entered"]

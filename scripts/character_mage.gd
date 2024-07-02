@@ -9,11 +9,10 @@ var barrier: BarrierClass
 var selected_speel := SPEELS.HEAL
 var heal_spell_strengh := 15
 
-var controller: CharacterController
-
 @onready var timer_heal_spell_cooldown: Timer = $TimerHealSpellCooldown
 @onready var animation_player = $AnimationPlayer
 
+var controller: CharacterController
 func _ready():
 	controller = get_parent() as CharacterController
 
