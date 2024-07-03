@@ -62,13 +62,5 @@ texture = SubResource("GradientTexture2D_sipfk")
 position = Vector2(264, 144)
 shape = SubResource("CapsuleShape2D_80h6q")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -380.0
-offset_top = -216.0
-offset_right = -340.0
-offset_bottom = -193.0
-theme_override_font_sizes/font_size = 61
-text = "can throw: "
-
 [connection signal="timeout" from="TimerPullRope" to="." method="_on_timer_pull_rope_timeout"]
 [connection signal="timeout" from="TimerRopeReachTarget" to="." method="_on_timer_rope_reach_target_timeout"]

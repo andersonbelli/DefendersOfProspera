@@ -7,11 +7,13 @@ const CHARACTERS_ENUM = preload("res://scripts/character_enum.gd").Characters
 @export var selected_character: CHARACTERS_ENUM
 
 @onready var character_engineer = $CharacterEngineer
-@onready var character_farmer = $CharacterFarmer
+@onready var character_farmer: FarmerClass = $CharacterFarmer
 @onready var character_mage: MageClass = $CharacterMage
 
 @onready var heal_spell = $HealSpell
 @onready var label_heal_spell_value = $HealSpell/LabelHealSpellValue
+
+@onready var throw_rope = $ThrowRope
 
 const selected_character_color = Color("ffffff")
 const unselected_character_color = Color("404040")
@@ -30,9 +32,15 @@ func _physics_process(delta):
 		
 		label_heal_spell_value.text = make_pretty_numbers(heal_spell_timer.time_left)
 		character_mage.barrier = barrier
+	elif selected_character == CHARACTERS_ENUM.FARMER:
+		if character_farmer.is_rope_throwed:
+			throw_rope.modulate = Color.BROWN
+		else:
+			throw_rope.modulate = Color.YELLOW
 
 func reset_abilities_visibility():
 	heal_spell.visible = false
+	throw_rope.visible = false
 
 func select_new_character():
 	reset_abilities_visibility()
@@ -58,6 +66,8 @@ func select_new_character():
 			character_engineer.modulate = unselected_character_color
 			character_farmer.modulate = unselected_character_color
 		CHARACTERS_ENUM.FARMER:
+			throw_rope.visible = true
+			
 			character_farmer.modulate =selected_character_color
 			
 			character_engineer.modulate = unselected_character_color

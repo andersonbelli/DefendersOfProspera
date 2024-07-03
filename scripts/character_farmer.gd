@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
+class_name FarmerClass
+
 @onready var timer_rope_reach_target = $TimerRopeReachTarget
 @onready var timer_pull_rope = $TimerPullRope
 
 @onready var line_2d: Line2D = $AreaRope/Line2D
 @onready var collision_rope = $AreaRope/CollisionRope
-
-@onready var label = $Label
 
 var initial_collision_position: Vector2
 
@@ -24,11 +24,6 @@ func _ready():
 	initial_collision_position = collision_rope.position
 
 func _physics_process(delta):
-	if is_rope_throwed == false:
-		label.text = "true"
-	else:
-		label.text = "false"
-	
 	if timer_pull_rope.is_stopped() and line_2d.get_point_count() > 0:
 		rope_pull()
 
