@@ -21,8 +21,6 @@ func _on_timer_enemy_spawn_timeout():
 	
 	var enemy: EnemyBaseClass
 	
-	zombie_or_bat = 0
-	
 	if zombie_or_bat == 0:
 		enemy = CharacterEnemyBat.instantiate()
 	else:
