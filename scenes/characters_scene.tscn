@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxqyxieu1ybkl"]
+[gd_scene load_steps=7 format=3 uid="uid://cxqyxieu1ybkl"]
 
 [ext_resource type="PackedScene" uid="uid://dnchqt6bdbub" path="res://scenes/character_engineer.tscn" id="1_cpr2p"]
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_ytjs0"]
@@ -15,8 +15,6 @@ use_hdr = true
 fill = 1
 fill_from = Vector2(0.535613, 0.817664)
 fill_to = Vector2(0.495726, 0.0655271)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_x86uv"]
 
 [node name="CharactersController" type="Node"]
 script = ExtResource("1_ytjs0")
@@ -142,47 +140,3 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 17
 text = "throw rope"
 horizontal_alignment = 1
-
-[node name="StaticBodyTop" type="StaticBody2D" parent="."]
-position = Vector2(647, 0)
-collision_layer = 32
-collision_mask = 32
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyTop"]
-position = Vector2(0, 1)
-rotation = 3.14159
-shape = SubResource("WorldBoundaryShape2D_x86uv")
-
-[node name="StaticBodyLeft" type="StaticBody2D" parent="."]
-position = Vector2(0, 367)
-rotation = -1.5708
-collision_layer = 32
-collision_mask = 32
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyLeft"]
-rotation = 3.14159
-shape = SubResource("WorldBoundaryShape2D_x86uv")
-
-[node name="StaticBodyRight" type="StaticBody2D" parent="."]
-position = Vector2(1283, 339)
-rotation = 1.5708
-collision_layer = 32
-collision_mask = 32
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyRight"]
-rotation = 3.14159
-shape = SubResource("WorldBoundaryShape2D_x86uv")
-
-[node name="StaticBodyBottom" type="StaticBody2D" parent="."]
-position = Vector2(638, 719)
-rotation = 3.14159
-collision_layer = 32
-collision_mask = 32
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodyBottom"]
-rotation = 3.14159
-shape = SubResource("WorldBoundaryShape2D_x86uv")

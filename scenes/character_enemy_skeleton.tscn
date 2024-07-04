@@ -1,0 +1,202 @@
+[gd_scene load_steps=18 format=3 uid="uid://byg7luuvsg0kk"]
+
+[ext_resource type="Texture2D" uid="uid://cswsnivmvud5m" path="res://assets/images/skeleton/arm-back-bottom.svg" id="1_6ydmc"]
+[ext_resource type="Texture2D" uid="uid://xfe1he2aw3kc" path="res://assets/images/skeleton/hand-back.svg" id="2_w5hcf"]
+[ext_resource type="Texture2D" uid="uid://4s2xpnna8iw4" path="res://assets/images/skeleton/arm-back-top.svg" id="3_1sdso"]
+[ext_resource type="Texture2D" uid="uid://q05ili4yrj7q" path="res://assets/images/skeleton/foot-back.svg" id="4_hptkr"]
+[ext_resource type="Texture2D" uid="uid://du4ynyfxsbyk6" path="res://assets/images/skeleton/leg-back-bottom.svg" id="5_26g7v"]
+[ext_resource type="Texture2D" uid="uid://2ygtgeu0i6ok" path="res://assets/images/skeleton/leg-back-top.svg" id="6_pwxhf"]
+[ext_resource type="Texture2D" uid="uid://xaeonoml7cra" path="res://assets/images/skeleton/body.svg" id="7_jteed"]
+[ext_resource type="Texture2D" uid="uid://ck87e2ey2xmel" path="res://assets/images/skeleton/mouth.svg" id="8_yc0jc"]
+[ext_resource type="Texture2D" uid="uid://bd1ao4281jwi4" path="res://assets/images/skeleton/head.svg" id="9_ba8oh"]
+[ext_resource type="Texture2D" uid="uid://b7jp4orxnis" path="res://assets/images/skeleton/arm-front-top.svg" id="10_6fywo"]
+[ext_resource type="Texture2D" uid="uid://ckvx1xbu62bug" path="res://assets/images/skeleton/arm-front-bottom.svg" id="11_rmmc6"]
+[ext_resource type="Texture2D" uid="uid://j7mgq6gj4mq6" path="res://assets/images/skeleton/hand-front.svg" id="12_cnbtt"]
+[ext_resource type="Texture2D" uid="uid://cwd68i0qgxeh0" path="res://assets/images/skeleton/leg-front-bottom.svg" id="13_qxffp"]
+[ext_resource type="Texture2D" uid="uid://c2lg5cs4ora6f" path="res://assets/images/skeleton/leg-front-top.svg" id="14_emo1s"]
+[ext_resource type="Texture2D" uid="uid://ckl5wuogb8yfd" path="res://assets/images/skeleton/foot-front.svg" id="15_5dqhu"]
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_xktvx"]
+target_nodepath = NodePath("../IKTargetFrontArm")
+joint_one_bone_idx = 3
+joint_one_bone2d_node = NodePath("Base/Body/FrontShoulder")
+joint_two_bone_idx = 4
+joint_two_bone2d_node = NodePath("Base/Body/FrontShoulder/FrontArm")
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_vd61g"]
+enabled = true
+modification_count = 1
+modifications/0 = SubResource("SkeletonModification2DTwoBoneIK_xktvx")
+
+[node name="CharacterEnemySkeleton" type="CharacterBody2D"]
+
+[node name="SkeletonContainer" type="Node2D" parent="."]
+
+[node name="Parts" type="Node2D" parent="SkeletonContainer"]
+
+[node name="Arm-back-bottom" type="Sprite2D" parent="SkeletonContainer/Parts"]
+position = Vector2(47, -2.25001)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_6ydmc")
+flip_h = true
+
+[node name="Hand-back" type="Sprite2D" parent="SkeletonContainer/Parts"]
+position = Vector2(72, -8.24999)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_w5hcf")
+flip_h = true
+
+[node name="Arm-back-top" type="Sprite2D" parent="SkeletonContainer/Parts"]
+position = Vector2(19, 3.75)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_1sdso")
+flip_h = true
+
+[node name="Foot-back" type="Sprite2D" parent="SkeletonContainer/Parts"]
+position = Vector2(27.75, 98.75)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_hptkr")
+flip_h = true
+
+[node name="Leg-back-bottom" type="Sprite2D" parent="SkeletonContainer/Parts"]
+position = Vector2(19.75, 83.75)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_26g7v")
+flip_h = true
+
+[node name="Leg-back-top" type="Sprite2D" parent="SkeletonContainer/Parts"]
+position = Vector2(5.95, 77.25)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_pwxhf")
+flip_h = true
+
+[node name="Body" type="Sprite2D" parent="SkeletonContainer/Parts"]
+position = Vector2(1, 17)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_jteed")
+flip_h = true
+
+[node name="Mouth" type="Sprite2D" parent="SkeletonContainer/Parts"]
+position = Vector2(12.75, -22.25)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_yc0jc")
+flip_h = true
+
+[node name="Head" type="Sprite2D" parent="SkeletonContainer/Parts"]
+position = Vector2(2, -36)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("9_ba8oh")
+flip_h = true
+
+[node name="Arm-front-top" type="Sprite2D" parent="SkeletonContainer/Parts"]
+position = Vector2(19.9399, 0.304594)
+rotation = 0.0277706
+scale = Vector2(0.0999969, 0.0999969)
+texture = ExtResource("10_6fywo")
+flip_h = true
+
+[node name="Arm-front-bottom" type="Sprite2D" parent="SkeletonContainer/Parts"]
+position = Vector2(36.889, 4.92908)
+rotation = 0.0277706
+scale = Vector2(0.0999958, 0.0999958)
+texture = ExtResource("11_rmmc6")
+offset = Vector2(95.6649, 0)
+flip_h = true
+
+[node name="Hand-front" type="Sprite2D" parent="SkeletonContainer/Parts"]
+position = Vector2(62.8779, 5.65099)
+rotation = 0.0277706
+scale = Vector2(0.0999958, 0.0999958)
+texture = ExtResource("12_cnbtt")
+flip_h = true
+
+[node name="Leg-front-bottom" type="Sprite2D" parent="SkeletonContainer/Parts"]
+position = Vector2(-4.25, 93.75)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("13_qxffp")
+flip_h = true
+
+[node name="Leg-front-top" type="Sprite2D" parent="SkeletonContainer/Parts"]
+position = Vector2(-3.25, 72.75)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("14_emo1s")
+flip_h = true
+
+[node name="Foot-front" type="Sprite2D" parent="SkeletonContainer/Parts"]
+position = Vector2(1.75001, 111.75)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("15_5dqhu")
+flip_h = true
+
+[node name="Skeleton2D" type="Skeleton2D" parent="SkeletonContainer"]
+visible = false
+modification_stack = SubResource("SkeletonModificationStack2D_vd61g")
+
+[node name="Base" type="Bone2D" parent="SkeletonContainer/Skeleton2D"]
+position = Vector2(0, 41)
+rest = Transform2D(1, 0, 0, 1, 0, 41)
+
+[node name="Body" type="Bone2D" parent="SkeletonContainer/Skeleton2D/Base"]
+position = Vector2(1, -46)
+rest = Transform2D(1, 0, 0, 1, 1, -46)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SkeletonContainer/Skeleton2D/Base/Body"]
+position = Vector2(0, 22)
+scale = Vector2(0.1, 0.1)
+remote_path = NodePath("../../../../Parts/Body")
+
+[node name="Head" type="Bone2D" parent="SkeletonContainer/Skeleton2D/Base/Body"]
+position = Vector2(0, -25)
+rest = Transform2D(1, 0, 0, 1, 0, -25)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SkeletonContainer/Skeleton2D/Base/Body/Head"]
+position = Vector2(1, -6)
+scale = Vector2(0.1, 0.1)
+remote_path = NodePath("../../../../../Parts/Head")
+
+[node name="FrontShoulder" type="Bone2D" parent="SkeletonContainer/Skeleton2D/Base/Body"]
+position = Vector2(8, 3)
+rotation = 0.567363
+scale = Vector2(0.999989, 0.999989)
+rest = Transform2D(0.965926, 0.258819, -0.258819, 0.965926, 8, 3)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="FrontArm" type="Bone2D" parent="SkeletonContainer/Skeleton2D/Base/Body/FrontShoulder"]
+position = Vector2(42.0714, 10.1522)
+scale = Vector2(0.999994, 0.999994)
+rest = Transform2D(1, 0, 0, 1, 51, 10)
+metadata/_local_pose_override_enabled_ = true
+
+[node name="FrontHand" type="Bone2D" parent="SkeletonContainer/Skeleton2D/Base/Body/FrontShoulder/FrontArm"]
+position = Vector2(22, -8)
+rest = Transform2D(1, 0, 0, 1, 22, -8)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SkeletonContainer/Skeleton2D/Base/Body/FrontShoulder/FrontArm/FrontHand"]
+position = Vector2(-10, 4)
+scale = Vector2(0.1, 0.1)
+remote_path = NodePath("../../../../../../../Parts/Hand-front")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SkeletonContainer/Skeleton2D/Base/Body/FrontShoulder/FrontArm"]
+position = Vector2(-14, -4)
+scale = Vector2(0.1, 0.1)
+remote_path = NodePath("../../../../../../Parts/Arm-front-bottom")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SkeletonContainer/Skeleton2D/Base/Body/FrontShoulder"]
+position = Vector2(11, 2)
+scale = Vector2(0.1, 0.1)
+remote_path = NodePath("../../../../../Parts/Arm-front-top")
+
+[node name="BackShoulder" type="Bone2D" parent="SkeletonContainer/Skeleton2D/Base/Body"]
+position = Vector2(17, 5)
+rest = Transform2D(1, 0, 0, 1, 17, 5)
+
+[node name="BackArm" type="Bone2D" parent="SkeletonContainer/Skeleton2D/Base/Body/BackShoulder"]
+position = Vector2(47, -5)
+rest = Transform2D(1, 0, 0, 1, 47, -5)
+
+[node name="BackHand" type="Bone2D" parent="SkeletonContainer/Skeleton2D/Base/Body/BackShoulder/BackArm"]
+position = Vector2(16, -8)
+rest = Transform2D(1, 0, 0, 1, 16, -8)
+
+[node name="IKTargetFrontArm" type="Node2D" parent="SkeletonContainer"]
+position = Vector2(81, 0)

@@ -83,15 +83,14 @@ wait_time = 3.0
 autostart = true
 
 [node name="StaticBodySpawnRight" type="StaticBody2D" parent="."]
-visible = false
-position = Vector2(1309, 649)
+position = Vector2(1311, 640)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodySpawnRight"]
 shape = SubResource("RectangleShape2D_2ytx0")
 
 [node name="StaticBodySpawnLeft" type="StaticBody2D" parent="."]
-visible = false
-position = Vector2(-29, 635)
+position = Vector2(-30, 640)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodySpawnLeft"]
@@ -107,13 +106,14 @@ rotation = 1.29337
 progress = 1836.68
 
 [node name="HUDInfo" type="ColorRect" parent="."]
+top_level = true
 light_mask = 0
 visibility_layer = 512
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -51.0
+offset_top = -50.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 10
@@ -162,12 +162,6 @@ metadata/_edit_group_ = true
 occluder = SubResource("OccluderPolygon2D_wwm08")
 occluder_light_mask = 512
 
-[node name="CharacterEnemyBat" parent="." instance=ExtResource("2_0b7nw")]
-visible = false
-light_mask = 272
-visibility_layer = 8
-position = Vector2(453, 330)
-
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 light_mask = 24
 visibility_layer = 24
@@ -180,9 +174,5 @@ shadow_enabled = true
 shadow_item_cull_mask = 15
 
 [node name="CharactersController" parent="." instance=ExtResource("6_ekbvq")]
-
-[node name="CharacterEnemyZombie" parent="." instance=ExtResource("3_sv4su")]
-visible = false
-position = Vector2(306, 635)
 
 [connection signal="timeout" from="TimerEnemySpawn" to="." method="_on_timer_enemy_spawn_timeout"]
