@@ -9,8 +9,6 @@ func _init():
 	enemy_type = ENEMY_TYPE_ENUM.FLOOR
 	enemy_velocity = 70
 
-	strengh = enemy_strengh
-
 func _physics_process(delta):
 	enemy_move(delta)
 
@@ -23,12 +21,10 @@ func _process(delta):
 	if is_hitting_barrier:
 		velocity = Vector2.ZERO
 		
-		enemy_strengh = 0
 		if timer_hit_cooldown.is_stopped():
 			timer_hit_cooldown.start()
 
 func _on_timer_hit_cooldown_timeout():
-	enemy_strengh = strengh
 	timer_hit_cooldown.stop()
 
 func _on_area_2d_body_entered(body):

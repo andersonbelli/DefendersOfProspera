@@ -38,9 +38,10 @@ func _on_timer_enemy_spawn_timeout():
 		enemy.look_at(area_barrier.position)
 	elif enemy.enemy_type == ENEMY_TYPE_ENUM.FLOOR:
 		var left_or_right = randi_range(0, 1)
-		
+
 		if left_or_right == 0:
 			enemy = CharacterEnemySkeletonFlipped.instantiate()
+
 			enemy.position.x = static_body_spawn_right.position.x
 			enemy.position.y = static_body_spawn_right.position.y
 		else:

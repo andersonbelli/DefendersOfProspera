@@ -11,7 +11,7 @@ var barrier: BarrierClass
 var is_hitting_barrier = false
 
 var enemy_velocity := 10
-var enemy_strengh := 8
+var enemy_strength := 8
 var enemy_health := 5
 
 func chase_barrier(_enemy_type: ENEMY_TYPE_ENUM, _barrier: BarrierClass):
