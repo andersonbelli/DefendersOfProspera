@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://23icyprm7xtk"]
+[gd_scene load_steps=15 format=3 uid="uid://23icyprm7xtk"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_46110"]
 [ext_resource type="PackedScene" uid="uid://djql07clsuycf" path="res://scenes/area_barrier.tscn" id="1_qfxj0"]
 [ext_resource type="PackedScene" uid="uid://wyehcnibcwfo" path="res://scenes/character_enemy_bat.tscn" id="2_0b7nw"]
 [ext_resource type="PackedScene" uid="uid://cwrcoho08s1sq" path="res://scenes/character_enemy_zombie.tscn" id="3_sv4su"]
+[ext_resource type="PackedScene" uid="uid://ch2gdkrroauiw" path="res://scenes/character_enemy_skeleton.tscn" id="4_um7c1"]
 [ext_resource type="PackedScene" uid="uid://cxqyxieu1ybkl" path="res://scenes/characters_scene.tscn" id="6_ekbvq"]
 
 [sub_resource type="Environment" id="Environment_62272"]
@@ -51,6 +52,7 @@ polygon = PackedVector2Array(-1066.67, 261.667, 1070, 261.667, 1070, 348.333, -1
 script = ExtResource("1_46110")
 CharacterEnemyBat = ExtResource("2_0b7nw")
 CharacterEnemyZombie = ExtResource("3_sv4su")
+CharacterEnemySkeleton = ExtResource("4_um7c1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)
