@@ -4,25 +4,25 @@ class_name BarrierClass
 
 @onready var animation_player = $Barrier/AnimationPlayer
 
-var barrier_health := 10
+var barrier_health := 10.0
 
-var heal_barrier := false
+var is_healing_barrier := false
 
-var barrier_curse_damage := 10
+var barrier_curse_damage := 10.0
 var is_barrier_cursed : = false
 
 var enemy_damaging_barrier: EnemyBaseClass
 
-func _physics_process(delta):
-	if heal_barrier:
-		animation_player.play("barrier_heal")
-		heal_barrier = false
-	
-	if enemy_damaging_barrier != null and barrier_health > 0:
-		animation_player.play("barrier_hit")
-		barrier_health -= enemy_damaging_barrier.enemy_strengh
-
 func _on_body_entered(body):
 	if body is EnemyBaseClass:
 		enemy_damaging_barrier = body
-		enemy_damaging_barrier.is_hitting_barrier = true
+		
+func heal_barrier(heal_spell_strengh: float):
+	is_healing_barrier = true
+	animation_player.play("barrier_heal")
+	barrier_health = clamp(barrier_health + heal_spell_strengh, 0.0, 100.0)
+	
+func damage_barrier(damage_strengh):
+	animation_player.play("barrier_hit")
+	
+	barrier_health = clamp(barrier_health - damage_strengh, 0.0, 100.0)

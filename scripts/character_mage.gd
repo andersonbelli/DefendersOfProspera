@@ -7,7 +7,7 @@ enum SPEELS { HEAL, CURE }
 var barrier: BarrierClass
 
 var selected_speel := SPEELS.HEAL
-var heal_spell_strengh := 15
+var heal_spell_strengh := 15.0
 
 @onready var timer_heal_spell_cooldown: Timer = $TimerHealSpellCooldown
 @onready var animation_player = $AnimationPlayer
@@ -30,12 +30,14 @@ func cast_spell():
 		
 		match selected_speel:
 			SPEELS.HEAL:
-				if barrier.barrier_health < 100:
-					if barrier.barrier_health + heal_spell_strengh > 100:
-						barrier.barrier_health = 100
-					else:
-						barrier.heal_barrier = true
-						barrier.barrier_health += heal_spell_strengh
+				barrier.heal_barrier(heal_spell_strengh)
+				
+				#if barrier.barrier_health < 100:
+					#if barrier.barrier_health + heal_spell_strengh > 100:
+						#barrier.barrier_health = 100
+					#else:
+						#barrier.heal_barrier = true
+						#barrier.barrier_health += heal_spell_strengh
 			SPEELS.CURE:
 				print("cure")
 

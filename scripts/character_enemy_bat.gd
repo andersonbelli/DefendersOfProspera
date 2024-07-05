@@ -7,6 +7,8 @@ extends EnemyBaseClass
 
 @onready var animated_sprite = $AnimatedSprite2D
 
+@onready var ray_cast = $RayCast2D
+
 var strengh = 0
 
 func _init():
@@ -20,6 +22,13 @@ func _ready():
 		animated_sprite.flip_v = true
 
 func _physics_process(delta):
+	if ray_cast.is_colliding() and ray_cast.get_collider() is BarrierClass:
+		velocity = Vector2.ZERO
+		
+		enemy_strengh = 0
+		if timer_hit_cooldown.is_stopped():
+			timer_hit_cooldown.start()
+	
 	var barrier = get_parent().get_node("AreaBarrier")
 	enemy_move(delta)
 
@@ -32,17 +41,11 @@ func _process(delta):
 		
 		get_parent().add_child(item_drop)
 		queue_free()
-	
-	if is_hitting_barrier:
-		velocity = Vector2.ZERO
-		
-		enemy_strengh = 0
-		if timer_hit_cooldown.is_stopped():
-			timer_hit_cooldown.start()
 
 func _on_timer_hit_cooldown_timeout():
 	enemy_strengh = strengh
-	timer_hit_cooldown.stop()
+	
+	barrier.damage_barrier(enemy_strengh)
 
 func _on_area_2d_body_entered(body):
 	if body is BulletClass:

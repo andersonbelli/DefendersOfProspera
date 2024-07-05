@@ -295,27 +295,12 @@ libraries = {
 }
 autoplay = "flying"
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.141176, 0.0980392, 0.0980392, 1)
-
 [node name="TimerHitCooldown" type="Timer" parent="."]
 wait_time = 1.5
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 30
+collision_layer = 2
+collision_mask = 22
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-3.5, 0)
@@ -326,13 +311,11 @@ position = Vector2(6, 18)
 rotation = -1.37338
 shape = SubResource("CapsuleShape2D_8wldv")
 
-[node name="LabelHealth" type="Label" parent="."]
-visible = false
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 86.0
-offset_bottom = 3.0
-text = "h:"
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(57, 0)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
 
 [connection signal="timeout" from="TimerHitCooldown" to="." method="_on_timer_hit_cooldown_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

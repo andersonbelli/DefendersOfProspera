@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://23icyprm7xtk"]
+[gd_scene load_steps=16 format=3 uid="uid://23icyprm7xtk"]
 
 [ext_resource type="Script" path="res://scripts/main_scene.gd" id="1_46110"]
 [ext_resource type="PackedScene" uid="uid://djql07clsuycf" path="res://scenes/area_barrier.tscn" id="1_qfxj0"]
 [ext_resource type="PackedScene" uid="uid://wyehcnibcwfo" path="res://scenes/character_enemy_bat.tscn" id="2_0b7nw"]
 [ext_resource type="PackedScene" uid="uid://cwrcoho08s1sq" path="res://scenes/character_enemy_zombie.tscn" id="3_sv4su"]
 [ext_resource type="PackedScene" uid="uid://ch2gdkrroauiw" path="res://scenes/character_enemy_skeleton.tscn" id="4_um7c1"]
+[ext_resource type="PackedScene" uid="uid://dshhmfgh511v7" path="res://scenes/character_enemy_skeleton_flipped.tscn" id="5_f0nq6"]
 [ext_resource type="PackedScene" uid="uid://cxqyxieu1ybkl" path="res://scenes/characters_scene.tscn" id="6_ekbvq"]
 
 [sub_resource type="Environment" id="Environment_62272"]
@@ -53,6 +54,7 @@ script = ExtResource("1_46110")
 CharacterEnemyBat = ExtResource("2_0b7nw")
 CharacterEnemyZombie = ExtResource("3_sv4su")
 CharacterEnemySkeleton = ExtResource("4_um7c1")
+CharacterEnemySkeletonFlipped = ExtResource("5_f0nq6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)
@@ -164,27 +166,17 @@ metadata/_edit_group_ = true
 occluder = SubResource("OccluderPolygon2D_wwm08")
 occluder_light_mask = 512
 
-[node name="CharacterEnemyBat" parent="." instance=ExtResource("2_0b7nw")]
-visible = false
-light_mask = 272
-visibility_layer = 8
-position = Vector2(453, 330)
-
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-light_mask = 24
-visibility_layer = 24
-position = Vector2(640, 0)
+light_mask = 128
+visibility_layer = 128
+position = Vector2(1280, 0)
 color = Color(0, 0, 0, 1)
 energy = 0.68
 blend_mode = 2
-range_item_cull_mask = 16
+range_item_cull_mask = 128
 shadow_enabled = true
-shadow_item_cull_mask = 15
+shadow_item_cull_mask = 143
 
 [node name="CharactersController" parent="." instance=ExtResource("6_ekbvq")]
-
-[node name="CharacterEnemyZombie" parent="." instance=ExtResource("3_sv4su")]
-visible = false
-position = Vector2(306, 635)
 
 [connection signal="timeout" from="TimerEnemySpawn" to="." method="_on_timer_enemy_spawn_timeout"]

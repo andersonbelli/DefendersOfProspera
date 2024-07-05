@@ -69,7 +69,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sotof"]
-radius = 10.6479
+radius = 10.4236
 
 [node name="AreaBarrier" type="Area2D"]
 light_mask = 16
@@ -88,7 +88,7 @@ color = Color(0.0911214, 0.0911215, 0.0911214, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 visible = false
-light_mask = 1023
+light_mask = 2
 visibility_layer = 31
 position = Vector2(-4.50005, -87)
 scale = Vector2(20.2344, 11.3438)
@@ -112,9 +112,8 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 visibility_layer = 2
-position = Vector2(4.48416e-44, 116)
+position = Vector2(-1, 111)
 scale = Vector2(35.6884, 36.1721)
 shape = SubResource("CircleShape2D_sotof")
 

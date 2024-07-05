@@ -10,5 +10,5 @@ func on_hit(enemy: EnemyBaseClass, hit_position):
 	
 	#linear_velocity = linear_velocity / 2000
 	#constant_force =  constant_force / 1000
-	
+	print("enemy = ", enemy)
 	queue_free()

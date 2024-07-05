@@ -5,6 +5,7 @@ const ENEMY_TYPE_ENUM = preload("res://scripts/enemy_type_enum.gd").EnemyType
 @export var CharacterEnemyBat: PackedScene
 @export var CharacterEnemyZombie: PackedScene
 @export var CharacterEnemySkeleton: PackedScene
+@export var CharacterEnemySkeletonFlipped: PackedScene
 
 @onready var timer_enemy_spawn = $TimerEnemySpawn
 @onready var area_barrier = %AreaBarrier
@@ -18,11 +19,11 @@ func _physics_process(delta):
 	label_barrier.text = "Barrier: " + str(area_barrier.barrier_health) + "%"
 
 func _on_timer_enemy_spawn_timeout():
-	var zombie_or_bat = randi_range(0, 1)
+	var floor_or_fly = randi_range(0, 1)
 	
 	var enemy: EnemyBaseClass
 	
-	if zombie_or_bat == 0:
+	if floor_or_fly == 0:
 		enemy = CharacterEnemyBat.instantiate()
 	else:
 		#enemy = CharacterEnemyZombie.instantiate()
@@ -39,6 +40,7 @@ func _on_timer_enemy_spawn_timeout():
 		var left_or_right = randi_range(0, 1)
 		
 		if left_or_right == 0:
+			enemy = CharacterEnemySkeletonFlipped.instantiate()
 			enemy.position.x = static_body_spawn_right.position.x
 			enemy.position.y = static_body_spawn_right.position.y
 		else:
