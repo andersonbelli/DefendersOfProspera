@@ -21,6 +21,6 @@ func _on_area_2d_area_entered(area):
 	if area.name == "AreaRope":
 		var area_rope: Area2D = area
 		var colission_rope = area.get_node("CollisionRope")
-		var farmer: CharacterBody2D = area_rope.get_parent()
+		var engineer: CharacterBody2D = area_rope.get_parent()
 		
 		reparent(colission_rope)

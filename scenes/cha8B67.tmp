@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cxqyxieu1ybkl"]
 
-[ext_resource type="PackedScene" uid="uid://dnchqt6bdbub" path="res://scenes/character_ranger.tscn" id="1_cpr2p"]
+[ext_resource type="PackedScene" uid="uid://dnchqt6bdbub" path="res://scenes/character_engineer.tscn" id="1_cpr2p"]
 [ext_resource type="Script" path="res://scripts/character_controller.gd" id="1_ytjs0"]
-[ext_resource type="PackedScene" uid="uid://cilmyihbwb5tp" path="res://scenes/character_engineer.tscn" id="2_110no"]
+[ext_resource type="PackedScene" uid="uid://cilmyihbwb5tp" path="res://scenes/character_farmer.tscn" id="2_110no"]
 [ext_resource type="PackedScene" uid="uid://bmlgf5ofygb6m" path="res://scenes/character_mage.tscn" id="3_hjswl"]
 
 [sub_resource type="Gradient" id="Gradient_o6cb8"]
@@ -22,7 +22,7 @@ script = ExtResource("1_ytjs0")
 [node name="CharacterRanger" parent="." instance=ExtResource("1_cpr2p")]
 position = Vector2(773, 578)
 
-[node name="CharacterEngineer" parent="." instance=ExtResource("2_110no")]
+[node name="CharacterFarmer" parent="." instance=ExtResource("2_110no")]
 position = Vector2(510, 578)
 
 [node name="CharacterMage" parent="." instance=ExtResource("3_hjswl")]

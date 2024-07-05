@@ -2,4 +2,4 @@ extends Node
 
 class_name CharactersEnum
 
-enum Characters { MAGE, ENGINEER, FARMER }
+enum Characters { MAGE, RANGER, ENGINEER }

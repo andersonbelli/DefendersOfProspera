@@ -6,8 +6,8 @@ const CHARACTERS_ENUM = preload("res://scripts/character_enum.gd").Characters
 
 @export var selected_character: CHARACTERS_ENUM
 
-@onready var character_engineer = $CharacterEngineer
-@onready var character_farmer: FarmerClass = $CharacterFarmer
+@onready var character_ranger: RangerClass = $CharacterRanger
+@onready var character_engineer: EngineerClass = $CharacterEngineer
 @onready var character_mage: MageClass = $CharacterMage
 
 @onready var heal_spell = $HealSpell
@@ -19,7 +19,7 @@ const selected_character_color = Color("ffffff")
 const unselected_character_color = Color("404040")
 
 func _ready():
-	selected_character = CHARACTERS_ENUM.ENGINEER
+	selected_character = CHARACTERS_ENUM.RANGER
 	select_new_character()
 
 func _physics_process(delta):
@@ -32,8 +32,8 @@ func _physics_process(delta):
 		
 		label_heal_spell_value.text = make_pretty_numbers(heal_spell_timer.time_left)
 		character_mage.barrier = barrier
-	elif selected_character == CHARACTERS_ENUM.FARMER:
-		if character_farmer.is_rope_throwed:
+	elif selected_character == CHARACTERS_ENUM.ENGINEER:
+		if character_engineer.is_rope_throwed:
 			throw_rope.modulate = Color.BROWN
 		else:
 			throw_rope.modulate = Color.YELLOW
@@ -47,30 +47,30 @@ func select_new_character():
 	
 	if Input.is_action_just_pressed("change_to_mage"):
 		selected_character = CHARACTERS_ENUM.MAGE
-	elif Input.is_action_just_pressed("change_to_farmer"):
-		selected_character = CHARACTERS_ENUM.FARMER
 	elif Input.is_action_just_pressed("change_to_engineer"):
 		selected_character = CHARACTERS_ENUM.ENGINEER
+	elif Input.is_action_just_pressed("change_to_ranger"):
+		selected_character = CHARACTERS_ENUM.RANGER
 	
 	match selected_character:
-		CHARACTERS_ENUM.ENGINEER:
-			character_engineer.modulate = selected_character_color
+		CHARACTERS_ENUM.RANGER:
+			character_ranger.modulate = selected_character_color
 			
 			character_mage.modulate = unselected_character_color
-			character_farmer.modulate = unselected_character_color
+			character_engineer.modulate = unselected_character_color
 		CHARACTERS_ENUM.MAGE:
 			heal_spell.visible = true
 			
 			character_mage.modulate = selected_character_color
 			
+			character_ranger.modulate = unselected_character_color
 			character_engineer.modulate = unselected_character_color
-			character_farmer.modulate = unselected_character_color
-		CHARACTERS_ENUM.FARMER:
+		CHARACTERS_ENUM.ENGINEER:
 			throw_rope.visible = true
 			
-			character_farmer.modulate =selected_character_color
+			character_engineer.modulate =selected_character_color
 			
-			character_engineer.modulate = unselected_character_color
+			character_ranger.modulate = unselected_character_color
 			character_mage.modulate = unselected_character_color
 
 func make_pretty_numbers( num:float, precission:int = 1  ) -> String:

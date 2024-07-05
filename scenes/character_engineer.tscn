@@ -1,13 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnchqt6bdbub"]
+[gd_scene load_steps=6 format=3 uid="uid://cilmyihbwb5tp"]
 
 [ext_resource type="Script" path="res://scripts/character_engineer.gd" id="1_owt66"]
-[ext_resource type="PackedScene" uid="uid://bmyynpv7jflmv" path="res://scenes/rigid_body_bullet.tscn" id="2_cdanc"]
+
+[sub_resource type="Gradient" id="Gradient_vra6a"]
+offsets = PackedFloat32Array(0, 0.989071)
+colors = PackedColorArray(0.893504, 0.806672, 0.381826, 1, 0.772431, 0.591059, 7.70092e-07, 1)
+
+[sub_resource type="Gradient" id="Gradient_8tyu2"]
+colors = PackedColorArray(0, 0.878431, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sipfk"]
+gradient = SubResource("Gradient_8tyu2")
+use_hdr = true
+fill_from = Vector2(0.991453, 0.0940171)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_80h6q"]
+radius = 60.0
+height = 160.0
 
 [node name="CharacterEngineer" type="CharacterBody2D"]
-visibility_layer = 8
 scale = Vector2(0.25, 0.25)
+collision_layer = 32
+collision_mask = 32
 script = ExtResource("1_owt66")
-Bullet = ExtResource("2_cdanc")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 8
@@ -21,4 +37,30 @@ offset_right = 229.5
 offset_bottom = 363.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.827629, 0.826981, 0, 1)
+pivot_offset = Vector2(228, 364)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.360509, 0.707669, 0.203134, 1)
+
+[node name="TimerPullRope" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="TimerRopeReachTarget" type="Timer" parent="."]
+wait_time = 0.005
+
+[node name="AreaRope" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+
+[node name="Line2D" type="Line2D" parent="AreaRope"]
+points = PackedVector2Array(268, 144)
+width = 20.0
+gradient = SubResource("Gradient_vra6a")
+texture = SubResource("GradientTexture2D_sipfk")
+
+[node name="CollisionRope" type="CollisionShape2D" parent="AreaRope"]
+position = Vector2(264, 144)
+shape = SubResource("CapsuleShape2D_80h6q")
+
+[connection signal="timeout" from="TimerPullRope" to="." method="_on_timer_pull_rope_timeout"]
+[connection signal="timeout" from="TimerRopeReachTarget" to="." method="_on_timer_rope_reach_target_timeout"]
