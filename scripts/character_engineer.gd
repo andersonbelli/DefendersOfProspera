@@ -16,6 +16,7 @@ func attack(mouse_position):
 	
 	bullet.position = position
 	bullet.rotation_degrees = global_rotation
+	bullet.look_at(mouse_position)
 	
 	var direction = global_position.direction_to(mouse_position)
 	var impulse = direction * 100

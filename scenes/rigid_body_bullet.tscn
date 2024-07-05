@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmyynpv7jflmv"]
+[gd_scene load_steps=4 format=3 uid="uid://bmyynpv7jflmv"]
 
 [ext_resource type="Script" path="res://scripts/rigid_body_munition.gd" id="1_25yjj"]
+[ext_resource type="Texture2D" uid="uid://dbjmbb0k1koer" path="res://assets/images/arrow.svg" id="2_bc227"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vccp5"]
-size = Vector2(40, 40)
+size = Vector2(62, 10)
 
 [node name="RigidBodyBullet" type="RigidBody2D"]
 collision_layer = 4
@@ -12,6 +13,7 @@ linear_damp_mode = 1
 script = ExtResource("1_25yjj")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -25,6 +27,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 0)
 shape = SubResource("RectangleShape2D_vccp5")
+
+[node name="Arrow" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, 5.96046e-08)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_bc227")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

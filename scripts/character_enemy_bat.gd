@@ -35,7 +35,7 @@ func _process(delta):
 		queue_free()
 
 func _on_timer_hit_cooldown_timeout():
-	barrier.damage_barrier(enemy_strengh)
+	barrier.damage_barrier(enemy_strength)
 
 func _on_area_2d_body_entered(body):
 	if body is BulletClass:
