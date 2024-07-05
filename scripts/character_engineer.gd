@@ -23,6 +23,5 @@ func attack(mouse_position):
 
 	bullet.linear_velocity = impulse * 25
 	bullet.add_constant_central_force(impulse)
-	#bullet.apply_impulse(Vector2(100, 0).rotated(rotation))
 	
 	get_parent().add_child(bullet)

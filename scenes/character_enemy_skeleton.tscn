@@ -1,21 +1,6 @@
-[gd_scene load_steps=37 format=3 uid="uid://ch2gdkrroauiw"]
+[gd_scene load_steps=22 format=3 uid="uid://ch2gdkrroauiw"]
 
-[ext_resource type="Texture2D" uid="uid://cswsnivmvud5m" path="res://assets/images/skeleton/arm-back-bottom.svg" id="1_6ydmc"]
 [ext_resource type="Script" path="res://scripts/character_enemy_skeleton.gd" id="1_vef0g"]
-[ext_resource type="Texture2D" uid="uid://xfe1he2aw3kc" path="res://assets/images/skeleton/hand-back.svg" id="2_w5hcf"]
-[ext_resource type="Texture2D" uid="uid://4s2xpnna8iw4" path="res://assets/images/skeleton/arm-back-top.svg" id="3_1sdso"]
-[ext_resource type="Texture2D" uid="uid://q05ili4yrj7q" path="res://assets/images/skeleton/foot-back.svg" id="4_hptkr"]
-[ext_resource type="Texture2D" uid="uid://du4ynyfxsbyk6" path="res://assets/images/skeleton/leg-back-bottom.svg" id="5_26g7v"]
-[ext_resource type="Texture2D" uid="uid://2ygtgeu0i6ok" path="res://assets/images/skeleton/leg-back-top.svg" id="6_pwxhf"]
-[ext_resource type="Texture2D" uid="uid://xaeonoml7cra" path="res://assets/images/skeleton/body.svg" id="7_jteed"]
-[ext_resource type="Texture2D" uid="uid://ck87e2ey2xmel" path="res://assets/images/skeleton/mouth.svg" id="8_yc0jc"]
-[ext_resource type="Texture2D" uid="uid://bd1ao4281jwi4" path="res://assets/images/skeleton/head.svg" id="9_ba8oh"]
-[ext_resource type="Texture2D" uid="uid://b7jp4orxnis" path="res://assets/images/skeleton/arm-front-top.svg" id="10_6fywo"]
-[ext_resource type="Texture2D" uid="uid://ckvx1xbu62bug" path="res://assets/images/skeleton/arm-front-bottom.svg" id="11_rmmc6"]
-[ext_resource type="Texture2D" uid="uid://j7mgq6gj4mq6" path="res://assets/images/skeleton/hand-front.svg" id="12_cnbtt"]
-[ext_resource type="Texture2D" uid="uid://cwd68i0qgxeh0" path="res://assets/images/skeleton/leg-front-bottom.svg" id="13_qxffp"]
-[ext_resource type="Texture2D" uid="uid://c2lg5cs4ora6f" path="res://assets/images/skeleton/leg-front-top.svg" id="14_emo1s"]
-[ext_resource type="Texture2D" uid="uid://ckl5wuogb8yfd" path="res://assets/images/skeleton/foot-front.svg" id="15_5dqhu"]
 [ext_resource type="Texture2D" uid="uid://cswsnivmvud5m" path="res://assets/images/skeleton_reversed/arm-back-bottom.svg" id="17_ilhku"]
 [ext_resource type="Texture2D" uid="uid://4s2xpnna8iw4" path="res://assets/images/skeleton_reversed/arm-back-top.svg" id="18_h01vi"]
 [ext_resource type="Texture2D" uid="uid://xfe1he2aw3kc" path="res://assets/images/skeleton_reversed/hand-back.svg" id="19_1hqn6"]
@@ -785,96 +770,96 @@ script = ExtResource("1_vef0g")
 [node name="Arm-back-bottom" type="Sprite2D" parent="Parts"]
 position = Vector2(29, 29)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_6ydmc")
+texture = ExtResource("17_ilhku")
 offset = Vector2(100, -52.5001)
 
 [node name="Hand-back" type="Sprite2D" parent="Parts"]
 position = Vector2(59, 21)
 rotation = 0.261799
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_w5hcf")
+texture = ExtResource("19_1hqn6")
 offset = Vector2(50, -32.4999)
 
 [node name="Arm-back-top" type="Sprite2D" parent="Parts"]
 position = Vector2(4.25, 6.24999)
 rotation = 0.785397
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("3_1sdso")
+texture = ExtResource("18_h01vi")
 offset = Vector2(160, -2.5)
 
 [node name="Foot-back" type="Sprite2D" parent="Parts"]
 position = Vector2(16, 99)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("4_hptkr")
+texture = ExtResource("24_cmnjw")
 offset = Vector2(117.5, -2.5)
 
 [node name="Leg-back-bottom" type="Sprite2D" parent="Parts"]
 position = Vector2(22, 68)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("5_26g7v")
+texture = ExtResource("28_av5nk")
 offset = Vector2(-22.5, 157.5)
 
 [node name="Leg-back-top" type="Sprite2D" parent="Parts"]
 position = Vector2(4.76837e-07, 45)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("6_pwxhf")
+texture = ExtResource("29_1jcql")
 offset = Vector2(59.5, 322.5)
 
 [node name="Body" type="Sprite2D" parent="Parts"]
 position = Vector2(-7, 41)
 rotation = 0.145352
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("7_jteed")
+texture = ExtResource("20_uub75")
 offset = Vector2(80, -240)
 
 [node name="Mouth" type="Sprite2D" parent="Parts"]
 position = Vector2(15.95, -24.25)
 rotation = 0.224267
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("8_yc0jc")
+texture = ExtResource("27_0ccp1")
 offset = Vector2(67.5, 37.5)
 
 [node name="Head" type="Sprite2D" parent="Parts"]
 position = Vector2(12.95, -33.25)
 rotation = 0.224267
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("9_ba8oh")
+texture = ExtResource("26_opxgf")
 
 [node name="Arm-front-top" type="Sprite2D" parent="Parts"]
 position = Vector2(-0.226615, -1.84469)
 scale = Vector2(0.0999989, 0.0999989)
-texture = ExtResource("10_6fywo")
+texture = ExtResource("22_yb5ah")
 offset = Vector2(171.623, 54.7936)
 
 [node name="Arm-front-bottom" type="Sprite2D" parent="Parts"]
 position = Vector2(26, 22)
 rotation = -0.261799
 scale = Vector2(0.0999983, 0.0999983)
-texture = ExtResource("11_rmmc6")
+texture = ExtResource("21_4den0")
 offset = Vector2(95.6649, 0)
 
 [node name="Hand-front" type="Sprite2D" parent="Parts"]
 position = Vector2(57, 15)
 scale = Vector2(0.0999983, 0.0999983)
-texture = ExtResource("12_cnbtt")
+texture = ExtResource("23_5iooy")
 offset = Vector2(58.918, -11.056)
 
 [node name="Leg-front-bottom" type="Sprite2D" parent="Parts"]
 position = Vector2(-1, 79)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("13_qxffp")
+texture = ExtResource("30_0jiml")
 offset = Vector2(-32.5, 147.5)
 
 [node name="Leg-front-top" type="Sprite2D" parent="Parts"]
 position = Vector2(-5, 45)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("14_emo1s")
+texture = ExtResource("31_7rj5g")
 offset = Vector2(17.5, 277.5)
 
 [node name="Foot-front" type="Sprite2D" parent="Parts"]
 position = Vector2(-9, 108)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("15_5dqhu")
+texture = ExtResource("25_n7ywh")
 offset = Vector2(107.5, 37.5)
 
 [node name="PartsFliped" type="Node2D" parent="."]

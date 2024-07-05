@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl0dthh625hu6"]
+[gd_scene load_steps=7 format=3 uid="uid://cl0dthh625hu6"]
 
 [ext_resource type="Script" path="res://scripts/rigid_body_essence_shard.gd" id="1_te2mm"]
+[ext_resource type="Texture2D" uid="uid://dyyjqs12lysk5" path="res://assets/images/essence_shard.png" id="2_r3va5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1u54"]
 size = Vector2(40, 40)
@@ -50,6 +51,7 @@ gravity_scale = 0.0
 script = ExtResource("1_te2mm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -80,6 +82,10 @@ autostart = true
 libraries = {
 "": SubResource("AnimationLibrary_3owy7")
 }
+
+[node name="EssenceShard" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_r3va5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
