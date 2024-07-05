@@ -3,7 +3,6 @@ extends EnemyBaseClass
 @export var EssenceShard: PackedScene
 
 @onready var timer_hit_cooldown = $TimerHitCooldown
-@onready var label_health = $LabelHealth
 
 @onready var animated_sprite = $AnimatedSprite2D
 
@@ -33,8 +32,6 @@ func _physics_process(delta):
 	enemy_move(delta)
 
 func _process(delta):
-	label_health.text = "h: " + str(enemy_health)
-	
 	if enemy_health <= 0:
 		var item_drop: RigidBody2D = EssenceShard.instantiate()
 		item_drop.position = position

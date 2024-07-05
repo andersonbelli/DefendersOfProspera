@@ -3,7 +3,6 @@ extends EnemyBaseClass
 class_name SkeletonEnemy
 
 @onready var timer_hit_cooldown = $TimerHitCooldown
-@onready var label_zombie = $LabelZombie
 
 @onready var parts = $Parts
 @onready var parts_fliped = $PartsFliped
@@ -31,8 +30,6 @@ func _physics_process(delta):
 	enemy_move(delta)
 
 func _process(delta):
-	label_zombie.text = "h: " + str(enemy_health)
-	
 	if enemy_health <= 0:
 		queue_free()
 
